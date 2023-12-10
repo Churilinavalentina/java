@@ -1,3 +1,5 @@
+import static java.lang.Math.sqrt;
+
 public class Line {
     Point start, end;
 
@@ -15,28 +17,12 @@ public class Line {
         return "Линия от {"+start.x+ ";"+start.y+"} до {"+end.x+ ";"+end.y+"}";
     }
 
+    public double length(){
+        return sqrt((start.x-end.x)*(start.x-end.x) + (start.y - end.y)*(start.y - end.y));
+    }
+
     public static void main(String[] args) {
-        Line l1 = new Line(new Point(1,3),new Point(28,8));
-        System.out.println(l1.toString());
-
-        Line l2 = new Line(new Point(5,10),new Point(28,10));
-        System.out.println(l2.toString());
-
-        Line l3 = new Line(l1.start, l2.end);
-        System.out.println(l3.toString());
-
-        l1.start.x = 4;
-        l1.start.y = 5;
-        l2.end.x = 4;
-        l2.end.y = 6;
-        System.out.println("");
-        System.out.println(l1.toString());
-        System.out.println(l2.toString());
-        System.out.println(l3.toString());
-
-        l1.start= new Point(9,8);
-        System.out.println("");
-        System.out.println(l1.toString());
-        System.out.println(l3.toString());
+        Line l1 = new Line(new Point(1,1),new Point(10,15));
+        System.out.println(l1.length());
     }
 }
