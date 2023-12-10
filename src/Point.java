@@ -7,7 +7,8 @@ public class Point {
         this.y = y;
     }
 
-    public String position (){
+    @Override
+    public String toString(){
         return "("+x+";"+y+")";
     }
 }

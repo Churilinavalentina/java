@@ -1,23 +1,23 @@
-public class Person {
-    Names name;
+public class Human {
+    Name name;
     int height;
-    Person father;
+    Human father;
 
-    public Person(Names name) {
+    public Human(Name name) {
         this.name = name;
     }
 
-    public Person(String name, int height) {
-        this.name = new Names(name);
+    public Human(String name, int height) {
+        this.name = new Name(name);
         this.height = height;
     }
 
-    public Person(String name, int height, Person father) {
+    public Human(String name, int height, Human father) {
         this(name, height);
         this.father = father;
     }
 
-    public Person(Names name, int height, Person father) {
+    public Human(Name name, int height, Human father) {
         this.name = name;
         this.height = height;
         this.father = father;
@@ -32,7 +32,8 @@ public class Person {
         }
     }
 
-    public String personInfo(){
+    @Override
+    public String toString(){
         if (father != null) {
             if (name.secondName == null && father.name.secondName != null) {
                 name.secondName = father.name.secondName;
@@ -42,29 +43,29 @@ public class Person {
                 name.surname = father.name.firstName + "ович";
             }
         }
-        return ("Человек с именем " + name.fullName());
+        return ("Человек с именем " + name.toString());
     }
 
     public String personInfoHeight(){
-        return ("Человек с именем " + name.fullName()+"и ростом "+height);
+        return ("Человек с именем " + name.toString()+"и ростом "+height);
     }
 
 
     public static void main(String[] args) {
         //1.2.2
-        Person people21 = new Person(new Names());
+        Human people21 = new Human(new Name());
         people21.name.firstName = "Клеопатра";
         people21.height = 152;
         System.out.println(people21.personInfoHeight());
 
-        Person people22 = new Person(new Names());
+        Human people22 = new Human(new Name());
         people22.name.firstName = "Александр";
         people22.name.secondName = "Пушкин";
         people22.name.surname = "Сергеевич";
         people22.height = 167;
         System.out.println(people22.personInfoHeight());
 
-        Person people23 = new Person(new Names());
+        Human people23 = new Human(new Name());
         people23.name.firstName = "Владимир";
         people23.name.secondName = "Маяковский";
         people23.height = 189;
@@ -72,33 +73,33 @@ public class Person {
 
 
         //1.2.3
-        Person people31 = new Person(new Names());
+        Human people31 = new Human(new Name());
         people31.name.firstName = "Иван";
         people31.name.secondName = "Чудов";
 
-        Person people32 = new Person(new Names());
+        Human people32 = new Human(new Name());
         people32.name.firstName = "Петр";
         people32.name.secondName = "Чудов";
         people32.father = people31;
 
-        Person people33 = new Person(new Names());
+        Human people33 = new Human(new Name());
         people33.name.firstName = "Борис";
         people33.father = people32;
 
         System.out.println("");
-        System.out.println(people31.personInfo());
-        System.out.println(people32.personInfo());
-        System.out.println(people33.personInfo());
+        System.out.println(people31.toString());
+        System.out.println(people32.toString());
+        System.out.println(people33.toString());
 
 
         //1.4.6
-        Person people61 = new Person("Лев", 170);
-        Person people62 = new Person(new Names("Сергей", "Пушкин"), 168, people61);
-        Person people63 = new Person("Александр", 167, people62);
+        Human people61 = new Human("Лев", 170);
+        Human people62 = new Human(new Name("Сергей", "Пушкин"), 168, people61);
+        Human people63 = new Human("Александр", 167, people62);
 
         System.out.println("");
-        System.out.println(people61.personInfo());
-        System.out.println(people62.personInfo());
-        System.out.println(people63.personInfo());
+        System.out.println(people61.toString());
+        System.out.println(people62.toString());
+        System.out.println(people63.toString());
     }
 }

@@ -8,15 +8,16 @@ public class BrokenLine {
         for(Point x:line) this.brokenLine.add(x);
     }
 
-    public String brokenLineToString (){
+    @Override
+    public String toString(){
         String result = "Линия ";
-        for(Point x:brokenLine) result = result+ x.position();
+        for(Point x:brokenLine) result = result+ x.toString();
         return result;
     }
 
     public static void main(String[] args) {
         BrokenLine l1 = new BrokenLine(new Point(1,5), new Point(2,8), new Point(5,3));
-        System.out.println(l1.brokenLineToString());
+        System.out.println(l1.toString());
 
         BrokenLine l2 = new BrokenLine();
         l2.brokenLine.add(l1.brokenLine.getFirst());
@@ -25,7 +26,7 @@ public class BrokenLine {
         l2.brokenLine.add(l1.brokenLine.getLast());
 
         l1.brokenLine.add(0, new Point(3,4));
-        System.out.println(l1.brokenLineToString());
-        System.out.println(l2.brokenLineToString());
+        System.out.println(l1.toString());
+        System.out.println(l2.toString());
     }
 }

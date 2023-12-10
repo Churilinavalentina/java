@@ -5,7 +5,8 @@ public class House {
         this.floor = floor;
     }
 
-    public String houseInfo(){
+    @Override
+    public String toString(){
         return ("Дом с "+floor + " этажами");
     }
 
@@ -14,6 +15,6 @@ public class House {
         House home = new House(2);
         //home.floor = 35;
         //home.floor = 91;
-        System.out.println(home.houseInfo());
+        System.out.println(home.toString());
     }
 }

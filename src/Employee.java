@@ -6,8 +6,8 @@ public class Employee {
         this.name = name;
         this.department = department;
     }
-
-    public String employeeInfo(){
+    @Override
+    public String toString(){
         if (department.boss.name == this.name) {
             return this.name + " начальник отдела " + department.name;
         }
@@ -31,9 +31,9 @@ public class Employee {
         people2.setDepartment(department1);
         people3.setDepartment(department1);
 
-        System.out.println(people1.employeeInfo());
-        System.out.println(people2.employeeInfo());
-        System.out.println(people3.employeeInfo());
+        System.out.println(people1.toString());
+        System.out.println(people2.toString());
+        System.out.println(people3.toString());
 
     }
 }
