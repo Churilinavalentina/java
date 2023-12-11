@@ -1,17 +1,18 @@
 public class Time {
-    final int second;
+    private int second;
 
     public Time(int second) {
-        this.second = second;
+        if (second > 3600*24) this.second=3600*24;
+        else this.second = second;
     }
 
     public Time(int hour, int minets, int second) {
-        this.second = hour*3600 + minets*60 + second;
+        this(hour*3600 + minets*60 + second);
     }
 
     @Override
     public String toString(){
-        return addNull(hour()) + ":" + addNull(minute()) + ":" + addNull(second());
+        return addNull(getHour()) + ":" + addNull(getMinute()) + ":" + addNull(getSecond());
     }
 
     public String addNull(int numbrer){
@@ -19,23 +20,22 @@ public class Time {
         return num.length() < 2 ? "0" + num : num;
     }
 
-    public int hour(){
+    public int getHour(){
         return second/3600;
     }
 
-    public int minute(){
+    public int getMinute(){
         return second%3600/60;
     }
-    public int second(){
+    public int getSecond(){
         return second%60;
     }
 
     public static void main(String[] args) {
-        Time t1 = new Time(34056);
-        Time t2 = new Time(4532);
-        Time t3 = new Time(123);
-        System.out.println(t1.hour());
-        System.out.println(t2.minute());
-        System.out.println(t3.second());
+        Time t1 = new Time(340000056);
+        System.out.println(t1.toString());
+
+        Time t2 = new Time(25, 34,6);
+        System.out.println(t2.toString());
     }
 }

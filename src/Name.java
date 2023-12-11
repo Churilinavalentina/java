@@ -1,7 +1,7 @@
 public class Name {
-    String firstName;
-    String secondName;
-    String surname;
+    private String firstName;
+    private String secondName;
+    private String surname;
 
     public Name() {}
 
@@ -16,6 +16,31 @@ public class Name {
 
     public Name(String firstName, String secondName, String surname) {
         this(firstName, secondName);
+        if ((firstName==null || firstName=="") && (secondName==null || secondName=="") && (surname==null || surname=="")) throw new IllegalArgumentException();
+        this.surname = surname;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public void setSurname(String surname) {
         this.surname = surname;
     }
 
@@ -37,6 +62,8 @@ public class Name {
         System.out.println(n2.toString());
         System.out.println(n3.toString());
         System.out.println(n4.toString());
+
+        Name n5 = new Name("", "", null);
     }
 
 }

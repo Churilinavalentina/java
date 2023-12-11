@@ -1,7 +1,7 @@
 public class Human {
-    Name name;
-    int height;
-    Human father;
+    private Name name;
+    private int height;
+    private Human father;
 
     public Human(Name name) {
         this.name = name;
@@ -9,6 +9,8 @@ public class Human {
 
     public Human(String name, int height) {
         this.name = new Name(name);
+
+        if (height<0 || height>500) throw new IllegalArgumentException();
         this.height = height;
     }
 
@@ -22,25 +24,41 @@ public class Human {
         this.height = height;
         this.father = father;
         if (father != null) {
-            if (this.name.secondName == null && father.name.secondName != null) {
-                this.name.secondName = father.name.secondName;
+            if (this.name.getSecondName() == null && father.name.getSecondName() != null) {
+                this.name.setSecondName(father.name.getSecondName());
             }
 
-            if (this.name.surname == null && father.name.firstName != null) {
-                this.name.surname = father.name.firstName + "ович";
+            if (this.name.getSurname() == null && father.name.getFirstName() != null) {
+                this.name.setSurname(father.name.getFirstName() + "ович");
             }
         }
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public Human getFather() {
+        return father;
+    }
+
+    public Name getName() {
+        return name;
     }
 
     @Override
     public String toString(){
         if (father != null) {
-            if (name.secondName == null && father.name.secondName != null) {
-                name.secondName = father.name.secondName;
+            if (this.name.getSecondName() == null && father.name.getSecondName() != null) {
+                this.name.setSecondName(father.name.getSecondName());
             }
 
-            if (name.surname == null && father.name.firstName != null) {
-                name.surname = father.name.firstName + "ович";
+            if (this.name.getSurname() == null && father.name.getFirstName() != null) {
+                this.name.setSurname(father.name.getFirstName() + "ович");
             }
         }
         return ("Человек с именем " + name.toString());
@@ -52,54 +70,8 @@ public class Human {
 
 
     public static void main(String[] args) {
-        //1.2.2
-        Human people21 = new Human(new Name());
-        people21.name.firstName = "Клеопатра";
-        people21.height = 152;
+        Human people21 = new Human("Клеопатра", 600);
         System.out.println(people21.personInfoHeight());
 
-        Human people22 = new Human(new Name());
-        people22.name.firstName = "Александр";
-        people22.name.secondName = "Пушкин";
-        people22.name.surname = "Сергеевич";
-        people22.height = 167;
-        System.out.println(people22.personInfoHeight());
-
-        Human people23 = new Human(new Name());
-        people23.name.firstName = "Владимир";
-        people23.name.secondName = "Маяковский";
-        people23.height = 189;
-        System.out.println(people23.personInfoHeight());
-
-
-        //1.2.3
-        Human people31 = new Human(new Name());
-        people31.name.firstName = "Иван";
-        people31.name.secondName = "Чудов";
-
-        Human people32 = new Human(new Name());
-        people32.name.firstName = "Петр";
-        people32.name.secondName = "Чудов";
-        people32.father = people31;
-
-        Human people33 = new Human(new Name());
-        people33.name.firstName = "Борис";
-        people33.father = people32;
-
-        System.out.println("");
-        System.out.println(people31.toString());
-        System.out.println(people32.toString());
-        System.out.println(people33.toString());
-
-
-        //1.4.6
-        Human people61 = new Human("Лев", 170);
-        Human people62 = new Human(new Name("Сергей", "Пушкин"), 168, people61);
-        Human people63 = new Human("Александр", 167, people62);
-
-        System.out.println("");
-        System.out.println(people61.toString());
-        System.out.println(people62.toString());
-        System.out.println(people63.toString());
     }
 }

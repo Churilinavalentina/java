@@ -1,8 +1,9 @@
 public class Square {
-    Point leftApp;
-    int length;
+    private Point leftApp;
+    private int length;
 
     public Square(Point leftApp, int length) {
+        if (length < 0) throw new IllegalArgumentException();
         this.leftApp = leftApp;
         this.length = length;
     }
@@ -10,6 +11,20 @@ public class Square {
     public Square(int x, int y, int length) {
         this(new Point(x,y), length);
     }
+
+    public int getLeftApp() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        if (length < 0) throw new IllegalArgumentException();
+        this.length = length;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
     @Override
     public String toString(){
         return "Квадрат в точке "+ leftApp.toString()+" со стороной "+length;
@@ -31,5 +46,10 @@ public class Square {
         System.out.println(b1.toString());
         System.out.println(b1.length());
 
+//        Square s3 = new Square(new Point(5,3), 23);
+//        System.out.println(s3.toString());
+
+        s1.setLength(-2);
+        System.out.println(s1.toString());
     }
 }

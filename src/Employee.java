@@ -1,39 +1,42 @@
 public class Employee {
-    String name;
-    Department department;
+    private String name;
+    private Department department;
 
     public Employee(String name, Department department) {
         this.name = name;
         this.department = department;
+
     }
     @Override
     public String toString(){
-        if (department.boss.name == this.name) {
-            return this.name + " начальник отдела " + department.name;
+        if (department.getBoss().getName() == this.name) {
+            return this.name + " начальник отдела " + department.getName();
         }
-        return this.name + " работает в отделе "+ department.name + ", начальником которого является "+ department.boss.name;
+        return this.name + " работает в отделе "+ department.getName() + ", начальником которого является "+ department.getBoss().getName();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setDepartment(Department department){
         this.department = department;
-        department.employee.add(this);
+        department.getEmployee().add(this);
     }
 
     public static void main(String[] args) {
-        //1.2.4
-        Department department1 = new Department("IT", null);
-        Employee people1 = new Employee("Петров", department1);
-        Employee people2 = new Employee("Козлов", department1);
-        Employee people3 = new Employee("Сидоров", department1);
-        department1.boss = people2;
-
-        people1.setDepartment(department1);
-        people2.setDepartment(department1);
-        people3.setDepartment(department1);
+        Employee people1 = new Employee("Петров", null);
+        Department department1 = new Department("IT", people1);
 
         System.out.println(people1.toString());
-        System.out.println(people2.toString());
-        System.out.println(people3.toString());
 
     }
 }

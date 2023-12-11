@@ -2,13 +2,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Student {
-    String name;
-    List<Integer> grades = new ArrayList<>();
+    private String name;
+    private List<Integer> grades = new ArrayList<>();
 
     public Student(String name, int...arr) {
         this.name = name;
-        for(int x:arr) grades.add(x);
+        for(int x:arr) {
+            if (x >=2 && x<=5) grades.add(x);
+            else throw new IllegalArgumentException();
+        }
         this.grades = grades;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Integer> getGrades() {
+        return grades;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setGrades(int...arr) {
+        for(int x:arr) {
+            if (x >=2 && x<=5) this.grades.add(x);
+            else throw new IllegalArgumentException();
+        }
     }
 
     @Override
@@ -42,6 +64,8 @@ public class Student {
         Student a2 = new Student("Петя", 5,5,5,5);
         System.out.println(a2.average());
         System.out.println(a2.excellent());
+
+        a2.setGrades(1);
 
     }
 }
