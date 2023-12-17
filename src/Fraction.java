@@ -1,4 +1,4 @@
-public class Fraction {
+public class Fraction extends Number implements Sum{
     private int numerator, denominator;
 
     public Fraction(int numerator, int denominator) {
@@ -24,24 +24,32 @@ public class Fraction {
         return new Fraction(numerator*f2.denominator, denominator* f2.numerator);
     }
 
+    @Override
+    public int intValue() {
+        return numerator/denominator;
+    }
+
+    @Override
+    public long longValue() {
+        return (long) numerator/denominator;
+    }
+
+    @Override
+    public float floatValue() {
+        return (float) numerator/denominator;
+    }
+
+    @Override
+    public double doubleValue() {
+        return (double) numerator/denominator;
+    }
+
     public static void main(String[] arg){
         //1.5
         Fraction f1 = new Fraction(1, 2);
         Fraction f2 = new Fraction(2, 3);
         Fraction f3 = new Fraction(4, 6);
 
-        System.out.println(f1.toString()+" + "+f2.toString()+" = "+f1.sum(f2).toString());
-        System.out.println(f1.toString()+" - "+f2.toString()+" = "+f1.diff(f2).toString());
-        System.out.println(f1.toString()+" * "+f2.toString()+" = "+f1.mult(f2).toString());
-        System.out.println(f1.toString()+" / "+f2.toString()+" = "+f1.div(f2).toString());
-        //System.out.println(f1.sum(f2).div(f3).diff(new Fraction(5, 0)).toString());
-
-        //1.6
-//        Fraction f4 = new Fraction(4, 6);
-//        f4.numerator = 5;
-//        System.out.println(f4.toString());
-
-        Fraction f5 = new Fraction(4, -6);
-        System.out.println(f5.toString());
+        System.out.println(f1.floatValue());
     }
 }

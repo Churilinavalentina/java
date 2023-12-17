@@ -11,16 +11,8 @@ public class City {
     }
 
     public City(String name, List<Road> roads) {
+        setRoads(roads);
         this.name = name;
-        for(Road x:roads) {
-            for (Road y: this.roads){
-                if (x.nameCity.getName() == y.nameCity.getName()) {
-                    System.out.println("Город уже добавлен");
-                    throw new IllegalArgumentException();
-                }
-            }
-            this.roads.add(x);
-        }
     }
 
     public String getName() {
@@ -28,7 +20,7 @@ public class City {
     }
 
     public List<Road> getRoads() {
-        return roads;
+        return new ArrayList<>(roads);
     }
 
     public void setName(String name) {
@@ -38,12 +30,12 @@ public class City {
     public void setRoads(List<Road> roads) {
         for(Road x:roads) {
             for (Road y: this.roads){
-                if (x.nameCity.getName() == y.nameCity.getName()) {
+                if (x.getToCity() == y.getToCity()) {
                     System.out.println("Город уже добавлен");
                     throw new IllegalArgumentException();
                 }
             }
-            this.roads.add(new Road(x.nameCity, x.coast));
+            this.roads.add(x);
         }
     }
 
@@ -64,7 +56,9 @@ public class City {
         City f = new City("f");
         City e = new City("e");
 
-        a.roads.add(new Road(f,1));
+        Road fr = new Road(f,1);
+
+        a.roads.add(fr);
         a.roads.add(new Road(b,5));
         a.roads.add(new Road(d,6));
 
@@ -85,21 +79,33 @@ public class City {
 
         System.out.println(a.toString());
 
-        e.setRoads(Arrays.asList(new Road(f, 2)));
+        a.setRoads(Arrays.asList(fr));
+
+        System.out.println(a.toString());
+
+        //e.setRoads(Arrays.asList(new Road(f, 2)));
     }
 }
 
 class Road {
-    City nameCity;
-    int coast;
+    private City toCity;
+    private int coast;
 
     public Road(City city, int coast) {
-        this.nameCity = new City(city.getName(), city.getRoads());
+        this.toCity = new City(city.getName(), city.getRoads());
         this.coast = coast;
+    }
+
+    public City getToCity() {
+        return toCity;
+    }
+
+    public int getCoast() {
+        return coast;
     }
 
     @Override
     public String toString(){
-        return "Road{" + "wayTo=" + nameCity.getName() + ", cost=" +coast+ "}";
+        return "Road{" + "wayTo=" + toCity.getName() + ", cost=" +coast+ "}";
     }
 }

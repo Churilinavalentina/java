@@ -15,7 +15,7 @@ public class Time {
         return addNull(getHour()) + ":" + addNull(getMinute()) + ":" + addNull(getSecond());
     }
 
-    public String addNull(int numbrer){
+    private String addNull(int numbrer){
         String num = Integer.toString(numbrer);
         return num.length() < 2 ? "0" + num : num;
     }

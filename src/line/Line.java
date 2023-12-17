@@ -1,3 +1,5 @@
+package line;
+
 import static java.lang.Math.sqrt;
 
 public class Line {

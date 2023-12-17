@@ -1,3 +1,5 @@
+package line;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +9,7 @@ public class BrokenLine {
     public BrokenLine(Point...line) {
         for(Point x:line) this.brokenLine.add(x);
     }
+
 
     @Override
     public String toString(){

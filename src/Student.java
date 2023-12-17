@@ -19,7 +19,7 @@ public class Student {
     }
 
     public List<Integer> getGrades() {
-        return grades;
+        return new ArrayList<>(grades);
     }
 
     public void setName(String name) {
