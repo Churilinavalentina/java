@@ -2,7 +2,7 @@ package line;
 
 import static java.lang.Math.sqrt;
 
-public class Line {
+public class Line implements Length{
     private Point start, end;
 
     public Line(Point start, Point end) {
@@ -35,7 +35,7 @@ public class Line {
         return "Линия от {"+start.x+ ";"+start.y+"} до {"+end.x+ ";"+end.y+"}";
     }
 
-    public double length(){
+    public Double length(){
         return sqrt((start.x-end.x)*(start.x-end.x) + (start.y - end.y)*(start.y - end.y));
     }
 

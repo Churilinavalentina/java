@@ -3,7 +3,7 @@ package line;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BrokenLine {
+public class BrokenLine implements Length{
     List<Point> brokenLine = new ArrayList<>();
 
     public BrokenLine(Point...line) {

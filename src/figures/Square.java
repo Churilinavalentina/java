@@ -2,7 +2,7 @@ package figures;
 import line.Point;
 import line.BrokenLine;
 
-public class Square extends AbstractFigures{
+public class Square extends AbstractFigures implements Area{
     private int length;
 
     public Square(Point startPoint,int length) {

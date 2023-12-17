@@ -11,7 +11,7 @@ public class Fraction extends Number implements Sum{
         return numerator+"/"+denominator;
     }
 
-    public Fraction sum(Fraction f2) {
+    public Fraction sumF(Fraction f2) {
         return new Fraction(numerator * f2.denominator + f2.numerator * denominator, denominator * f2.denominator);
     }
     public Fraction diff(Fraction f2) {
@@ -51,5 +51,10 @@ public class Fraction extends Number implements Sum{
         Fraction f3 = new Fraction(4, 6);
 
         System.out.println(f1.floatValue());
+    }
+
+    @Override
+    public Double sum() {
+        return null;
     }
 }

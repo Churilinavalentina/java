@@ -1,4 +1,4 @@
-public class Cat {
+public class Cat implements Meow{
     String name;
 
     public Cat(String name) {

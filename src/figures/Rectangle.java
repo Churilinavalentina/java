@@ -4,7 +4,7 @@ import line.Point;
 
 import java.util.List;
 
-public class Rectangle extends AbstractFigures{
+public class Rectangle extends AbstractFigures implements Area{
     int a;
     int b;
 

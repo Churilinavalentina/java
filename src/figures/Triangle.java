@@ -1,7 +1,7 @@
 package figures;
 import line.Line;
 import line.Point;
-public class Triangle extends AbstractFigures{
+public class Triangle extends AbstractFigures implements Area{
     Point b;
     Point c;
 

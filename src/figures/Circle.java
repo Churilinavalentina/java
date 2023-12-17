@@ -2,7 +2,7 @@ package figures;
 
 import line.Point;
 
-public class Circle extends AbstractFigures{
+public class Circle extends AbstractFigures implements Area{
     int r;
 
     public Circle(Point startPoint, int r) {

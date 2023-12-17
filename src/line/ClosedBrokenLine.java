@@ -1,6 +1,6 @@
-import java.util.ArrayList;
+package line;
+
 import java.util.Arrays;
-import java.util.List;
 
 public class ClosedBrokenLine extends BrokenLine{
     public ClosedBrokenLine(Point...point) {
