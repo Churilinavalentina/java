@@ -1,8 +1,10 @@
 package line;
 
+import figures.ToLine;
+
 import static java.lang.Math.sqrt;
 
-public class Line implements Length{
+public class Line implements Length, ToLine {
     private Point start, end;
 
     public Line(Point start, Point end) {
@@ -37,6 +39,9 @@ public class Line implements Length{
 
     public Double length(){
         return sqrt((start.x-end.x)*(start.x-end.x) + (start.y - end.y)*(start.y - end.y));
+    }
+    public BrokenLine getPolygonalLine(){
+        return new BrokenLine(start, end);
     }
 
     public static void main(String[] args) {

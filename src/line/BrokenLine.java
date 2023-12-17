@@ -1,9 +1,12 @@
 package line;
 
+import figures.ToLine;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class BrokenLine implements Length{
+public class BrokenLine implements Length, ToLine {
     List<Point> brokenLine = new ArrayList<>();
 
     public BrokenLine(Point...line) {
@@ -23,9 +26,21 @@ public class BrokenLine implements Length{
     }
 
     public void setPoint(Point...point){
+        addPoint(Arrays.asList(point));
+    }
+
+    public void addPoint(List<Point> point){
         for (Point p: point){
             brokenLine.add(p);
         }
+    }
+
+    public List<Point> getBrokenLine() {
+        return brokenLine;
+    }
+
+    public BrokenLine getPolygonalLine() {
+        return this;
     }
 
     public Double length(){

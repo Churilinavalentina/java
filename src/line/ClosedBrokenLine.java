@@ -10,6 +10,7 @@ public class ClosedBrokenLine extends BrokenLine{
         }
     }
 
+
     @Override
     public Double length(){
         return super.length() + (new Line(brokenLine.getFirst(), brokenLine.getLast()).length());

@@ -4,6 +4,7 @@ import bird.Cuckoo;
 import bird.Parrot;
 import bird.Sing;
 import bird.Sparrow;
+import line.BrokenLine;
 import line.Point;
 
 public class Test {
@@ -13,6 +14,14 @@ public class Test {
             s = s + f.area();
         }
         return s;
+    }
+
+    public static BrokenLine polygonalLine(ToLine... figurs){
+        BrokenLine b =new BrokenLine();
+        for (ToLine f: figurs){
+            b.addPoint(f.getPolygonalLine().getBrokenLine());
+        }
+        return b;
     }
     public static void main(String[] arg){
         //1.5
