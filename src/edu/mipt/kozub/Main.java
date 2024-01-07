@@ -12,6 +12,9 @@ import edu.mipt.kozub.geometry.line.Point;
 import java.math.BigInteger;
 import java.util.Arrays;
 
+import static java.lang.Integer.parseInt;
+import static java.lang.Math.pow;
+
 public class Main {
     public static void sing(Sing... birds){
         for (Sing s: birds){
@@ -52,7 +55,7 @@ public class Main {
     }
 
     public static double mathPow(String x, String y){
-        return Math.pow(Integer.parseInt(x), Integer.parseInt(y));
+        return pow(parseInt(x), parseInt(y));
     }
 
     public static void main(String[] args) {
