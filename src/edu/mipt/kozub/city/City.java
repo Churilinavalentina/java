@@ -3,6 +3,7 @@ package edu.mipt.kozub.city;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class City {
     private String name;
@@ -50,27 +51,16 @@ public class City {
         return "City: " + name + ", roads: " + roads.toString();
     }
 
-}
-
-class Road {
-    private City toCity;
-    private int coast;
-
-    public Road(City city, int coast) {
-        this.toCity = new City(city.getName(), city.getRoads());
-        this.coast = coast;
-    }
-
-    public City getToCity() {
-        return toCity;
-    }
-
-    public int getCoast() {
-        return coast;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof City)) return false;
+        City city = (City) o;
+        return Objects.equals(getRoads(), city.getRoads());
     }
 
     @Override
-    public String toString(){
-        return "Road{" + "wayTo=" + toCity.getName() + ", cost=" +coast+ "}";
+    public int hashCode() {
+        return Objects.hash(getName(), getRoads());
     }
 }

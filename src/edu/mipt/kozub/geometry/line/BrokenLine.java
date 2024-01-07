@@ -5,6 +5,7 @@ import edu.mipt.kozub.geometry.ToLine;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class BrokenLine implements Length, ToLine {
     List<Point> brokenLine = new ArrayList<>();
@@ -49,5 +50,17 @@ public class BrokenLine implements Length, ToLine {
             length = length + (new Line(brokenLine.get(i), brokenLine.get(i+1)).length());
         }
         return length;
+    }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BrokenLine that)) return false;
+        return Objects.equals(getBrokenLine(), that.getBrokenLine());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getBrokenLine());
     }
 }

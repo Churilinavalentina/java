@@ -1,11 +1,15 @@
 package edu.mipt.kozub;
 
 import edu.mipt.kozub.bird.Sing;
+import edu.mipt.kozub.city.City;
+import edu.mipt.kozub.city.Road;
+import edu.mipt.kozub.city.TwoWayCity;
 import edu.mipt.kozub.employee.Department;
 import edu.mipt.kozub.employee.Employee;
 import edu.mipt.kozub.geometry.*;
 import edu.mipt.kozub.geometry.line.BrokenLine;
 import edu.mipt.kozub.geometry.line.Length;
+import edu.mipt.kozub.geometry.line.Line;
 import edu.mipt.kozub.numbers.Fraction;
 import edu.mipt.kozub.geometry.line.Point;
 
@@ -58,7 +62,7 @@ public class Main {
         return pow(parseInt(x), parseInt(y));
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         System.out.println(sum(7, new Fraction(11,3).doubleValue(), 3,21, new BigInteger("12345678912345678912")));
         //System.out.println(mathPow(args[0], args[1]));
 
@@ -85,6 +89,9 @@ public class Main {
         it.removeEmployee(e1);
         System.out.println(it.getEmployee());
 
+        System.out.println(new Fraction(3, 5).equals(new Fraction(3, 5)));
+        System.out.println(new BrokenLine(new Point(1, 2), b).equals(new BrokenLine(new Point(1,2),b)));
+
 //        Sing s1 = new Sparrow();
 //        Sing p1 = new Parrot("кар");
 //        Sing c1 = new Cuckoo();
@@ -101,39 +108,19 @@ public class Main {
 //        Length b1 = new BrokenLine(new Point(4,5), new Point(8,9));
 //        System.out.println(length(l1,b1));
 
-//        City a = new City("a");
-//        City b = new City("b");
-//        City c = new City("c");
-//        City d = new City("d");
-//        City f = new City("f");
-//        City e = new City("e");
-//
-//        Road fr = new Road(f,1);
-//
-//        a.roads.add(fr);
-//        a.roads.add(new Road(b,5));
-//        a.roads.add(new Road(d,6));
-//
-//        b.roads.add(new Road(a,5));
-//        b.roads.add(new Road(c,3));
-//
-//        c.roads.add(new Road(b,3));
-//        c.roads.add(new Road(d,4));
-//
-//        d.roads.add(new Road(e,2));
-//        d.roads.add(new Road(a,6));
-//        d.roads.add(new Road(c,4));
-//
-//        f.roads.add(new Road(e,2));
-//        f.roads.add(new Road(b,1));
-//
-//        e.roads.add(new Road(f,2));
-//
-//        System.out.println(a.toString());
-//
-//        a.setRoads(Arrays.asList(fr));
-//
-//        System.out.println(a.toString());
+        City d = new City("d");
+        TwoWayCity c = new TwoWayCity("c", new Road(d, 4));
+        TwoWayCity f = new TwoWayCity("f", new Road(d, 4));
+
+        System.out.println(c.equals(f));
+
+        Fraction f1 = new Fraction(3, 5);
+        Fraction f2 = (Fraction) f1.clone();
+        System.out.println(f2);
+
+        Line l1 = new Line(new Point(3,5), new Point(6,7));
+        Line l2 = (Line) l1.clone();
+        System.out.println(l2);
 
     }
 }

@@ -20,7 +20,6 @@ public class TwoWayCity extends City{
             super.setRoads(Arrays.asList(x));
             Road twoRoad = new Road(this, x.getCoast());
             x.getToCity().setRoads(Arrays.asList(twoRoad));
-            System.out.println(x.getToCity().toString());
         }
     }
 }

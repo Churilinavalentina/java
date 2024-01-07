@@ -1,6 +1,8 @@
 package edu.mipt.kozub.numbers;
 
-public final class Fraction extends Number{
+import java.util.Objects;
+
+public final class Fraction extends Number implements Cloneable {
     private int numerator, denominator;
 
     public Fraction(int numerator, int denominator) {
@@ -45,5 +47,26 @@ public final class Fraction extends Number{
     public double doubleValue() {
         return (double) numerator/denominator;
     }
+
+    @Override
+    public final boolean equals(Object o){
+        if(this == o) return  true;
+        if(o == null && this!=null) return false;
+        if(!(o instanceof Fraction)) return false;
+        Fraction f = (Fraction) o;
+        if(f.denominator == this.denominator && f.numerator == this.numerator) return true;
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numerator, denominator);
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException{
+        return super.clone();
+    }
+
 
 }
