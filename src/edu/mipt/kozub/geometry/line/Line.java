@@ -6,17 +6,17 @@ import java.util.Objects;
 
 import static java.lang.Math.sqrt;
 
-public class Line implements Length, ToLine, Cloneable {
-    private Point start, end;
+public class Line<T extends Point> implements Length, ToLine, Cloneable {
+    private T start, end;
 
-    public Line(Point start, Point end) {
-        this.start = new Point(start.x, start.y);
-        this.end = new Point(end.x, end.y);
+    public Line(T start, T end) {
+        this.start = (T) start.clone();
+        this.end = (T) end.clone();
     }
 
-    public Line(int xStart, int yStart, int xEnd, int yEnd) {
-        this(new Point(xStart, yStart), new Point(xEnd, yEnd));
-    }
+//    public Line(int xStart, int yStart, int xEnd, int yEnd) {
+//        this(new Point(xStart, yStart), new Point(xEnd, yEnd));
+//    }
 
     public Point getStart() {
         return start;
@@ -26,17 +26,17 @@ public class Line implements Length, ToLine, Cloneable {
         return end;
     }
 
-    public void setStart(Point start) {
-        this.start = new Point(start.x, start.y);
+    public void setStart(T start) {
+        this.start = (T) start.clone();
     }
 
     public void setEnd(Point end) {
-        this.end = new Point(end.x, end.y);
+        this.end = (T) end.clone();
     }
 
     @Override
     public  String toString(){
-        return "Линия от {"+start.x+ ";"+start.y+"} до {"+end.x+ ";"+end.y+"}";
+        return "Линия от " + start.toString()+ " до "+ end.toString();
     }
 
     public Double length(){
@@ -59,7 +59,15 @@ public class Line implements Length, ToLine, Cloneable {
         return Objects.hash(getStart(), getEnd());
     }
 
-    public Object clone() throws CloneNotSupportedException{
-        return super.clone();
+    public Line clone(){
+        try {
+            Line line = (Line) super.clone();
+            line.start = line.start.clone();
+            line.end = line.end.clone();
+
+            return line;
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

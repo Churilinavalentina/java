@@ -1,9 +1,11 @@
 package edu.mipt.kozub.people;
 
+import edu.mipt.kozub.Comparable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Student {
+public class Student implements Comparable<Student> {
     private String name;
     private List<Integer> grades = new ArrayList<>();
 
@@ -57,4 +59,14 @@ public class Student {
         if (this.average()==5) return true;
         return false;
     }
+
+    public Integer Comparable(Student s){
+        Double s1 = this.average();
+        Double s2 = s.average();
+
+        if (s1 > s2) return 1;
+        if (s1 == s2) return 0;
+        return -1;
+    }
+
 }

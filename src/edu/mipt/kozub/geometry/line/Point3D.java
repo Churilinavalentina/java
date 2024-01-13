@@ -12,4 +12,10 @@ public class Point3D extends Point{
     public String toString(){
         return "("+x+";"+y+";"+z+")";
     }
+    public Point shift(Integer n){
+        this.x = this.x+n;
+        this.y = this.y+n;
+        this.z = this.z+n;
+        return this;
+    }
 }

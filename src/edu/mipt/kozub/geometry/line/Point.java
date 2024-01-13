@@ -1,7 +1,5 @@
 package edu.mipt.kozub.geometry.line;
 
-import edu.mipt.kozub.numbers.Fraction;
-
 import java.util.Objects;
 
 public class Point implements Cloneable{
@@ -13,9 +11,23 @@ public class Point implements Cloneable{
         this.y = y;
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     @Override
     public String toString(){
         return "("+x+";"+y+")";
+    }
+
+    public Point shift(Integer n){
+        this.x = this.x+n;
+        this.y = this.y+n;
+        return this;
     }
 
     @Override
@@ -32,7 +44,11 @@ public class Point implements Cloneable{
         return Objects.hash(x, y);
     }
 
-    public Object clone() throws CloneNotSupportedException{
-        return super.clone();
+    public Point clone(){
+        try {
+            return (Point) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

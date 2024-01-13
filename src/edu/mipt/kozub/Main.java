@@ -1,5 +1,6 @@
 package edu.mipt.kozub;
 
+import edu.mipt.kozub.basket.Basket;
 import edu.mipt.kozub.bird.Sing;
 import edu.mipt.kozub.city.City;
 import edu.mipt.kozub.city.Road;
@@ -7,15 +8,17 @@ import edu.mipt.kozub.city.TwoWayCity;
 import edu.mipt.kozub.employee.Department;
 import edu.mipt.kozub.employee.Employee;
 import edu.mipt.kozub.geometry.*;
-import edu.mipt.kozub.geometry.line.BrokenLine;
-import edu.mipt.kozub.geometry.line.Length;
-import edu.mipt.kozub.geometry.line.Line;
+import edu.mipt.kozub.geometry.line.*;
 import edu.mipt.kozub.numbers.Fraction;
-import edu.mipt.kozub.geometry.line.Point;
+import edu.mipt.kozub.people.Student;
+import edu.mipt.kozub.storage.Storage;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
+import static edu.mipt.kozub.storage.Storage.getObject;
 import static java.lang.Integer.parseInt;
 import static java.lang.Math.pow;
 
@@ -62,65 +65,67 @@ public class Main {
         return pow(parseInt(x), parseInt(y));
     }
 
+    public static Line<?> shift(Line<?> l){
+        Line<?> l2 = new Line<>(l.getStart().clone().shift(10), l.getEnd().clone().shift(10));
+        return l2;
+    }
+
+    public static double maxStor(Storage<? extends Number>...s){
+        double max = (double) 0;
+        Number n = 0;
+
+        for (Storage<? extends Number> i:s){
+            Double objStor = getObject(i.getObject(), 0).doubleValue();
+            if (max < objStor) {
+                max = objStor;
+            }
+        }
+        return max;
+    }
+
+    public static Basket<?> addBasket(Basket<? super Point3D> b){
+        b.setElement(new Point3D(2, 3, 4));
+        return b;
+    }
+
+    public static List<?> addList(List<? super Integer> l){
+        for(int i=0; i<100; i++){
+            l.add(i);
+        }
+        return l;
+    }
+
     public static void main(String[] args) throws CloneNotSupportedException {
-        System.out.println(sum(7, new Fraction(11,3).doubleValue(), 3,21, new BigInteger("12345678912345678912")));
-        //System.out.println(mathPow(args[0], args[1]));
 
-        java.awt.Point a = new java.awt.Point(1, 2);
-        System.out.println(a);
+        Basket<Integer> b1 = new Basket<>();
+        b1.setElement(3);
+        System.out.println(b1.chekEmpty());
 
-        Point b = new Point(3, 4);
-        System.out.println(b);
+        Storage<Integer> s1 = new Storage<>(null);
+        System.out.println(getObject(null,0)+1);
 
-        Department it = new Department("IT");
-        Department security = new Department("Security");
-        Employee e1= new Employee("Vasya", it);
-        Employee e2= new Employee("Petya", it);
-        Employee e3= new Employee("Lesha", it);
-        Employee e4= new Employee("Kirill", security);
-        System.out.println(it);
-        System.out.println(security.getEmployee());
+        Storage<Integer> s2 = new Storage<>(99);
+        System.out.println(getObject(99,-1));
 
-        it.setBoss(e4);
-        System.out.println(it.getEmployee());
-        System.out.println(security.getEmployee());
-        System.out.println(e4);
+        Storage<String> s3 = new Storage<>(null);
+        System.out.println(getObject(null, "Default"));
 
-        it.removeEmployee(e1);
-        System.out.println(it.getEmployee());
+        Storage<String> s4 = new Storage<>("hello");
+        System.out.println(getObject("hello","hello world"));
 
-        System.out.println(new Fraction(3, 5).equals(new Fraction(3, 5)));
-        System.out.println(new BrokenLine(new Point(1, 2), b).equals(new BrokenLine(new Point(1,2),b)));
+        Student st1 = new Student("Vasy", 3, 4, 5);
+        Student st2 = new Student("Pety", 5, 5, 5);
+        System.out.println(st1.Comparable(st2));
 
-//        Sing s1 = new Sparrow();
-//        Sing p1 = new Parrot("кар");
-//        Sing c1 = new Cuckoo();
-//        sing(s1, p1, c1);
-//
-//
-//        Area sq1 = new Square(1,2,5);
-//        Area rc1 = new Rectangle(new Point(2, 3), 4, 5);
-//        Area cr1 = new Circle(new Point(5,6), 3);
-//        Area t1 = new Triangle(new Point(5,6), new Point(1,2), new Point(8,9));
-//        System.out.println(area(sq1, rc1, cr1, t1));
-//
-//        Length l1 = new Line(new Point(2,3), new Point(4,5));
-//        Length b1 = new BrokenLine(new Point(4,5), new Point(8,9));
-//        System.out.println(length(l1,b1));
+        Line<Point3D> line1 = new Line<>(new Point3D(2, 3, 4), new Point3D(6, 7, 8));
+        System.out.println(line1);
 
-        City d = new City("d");
-        TwoWayCity c = new TwoWayCity("c", new Road(d, 4));
-        TwoWayCity f = new TwoWayCity("f", new Road(d, 4));
+        System.out.println(shift(line1).toString());
 
-        System.out.println(c.equals(f));
+        System.out.println(maxStor(s1, s2));
 
-        Fraction f1 = new Fraction(3, 5);
-        Fraction f2 = (Fraction) f1.clone();
-        System.out.println(f2);
+        System.out.println(addBasket(new Basket<>()));
 
-        Line l1 = new Line(new Point(3,5), new Point(6,7));
-        Line l2 = (Line) l1.clone();
-        System.out.println(l2);
-
+        System.out.println(addList(new ArrayList<>()));
     }
 }
