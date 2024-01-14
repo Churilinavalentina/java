@@ -2,18 +2,16 @@ package edu.mipt.kozub;
 
 import edu.mipt.kozub.basket.Basket;
 import edu.mipt.kozub.bird.Sing;
-import edu.mipt.kozub.city.City;
-import edu.mipt.kozub.city.Road;
-import edu.mipt.kozub.city.TwoWayCity;
-import edu.mipt.kozub.employee.Department;
-import edu.mipt.kozub.employee.Employee;
 import edu.mipt.kozub.geometry.*;
 import edu.mipt.kozub.geometry.line.*;
-import edu.mipt.kozub.numbers.Fraction;
 import edu.mipt.kozub.people.Student;
 import edu.mipt.kozub.storage.Storage;
+import edu.mipt.kozub.utils.UtilsInt;
+import edu.mipt.kozub.utils.UtilsStr;
+import edu.mipt.kozub.utils.UtilsArrayInt;
+import edu.mipt.kozub.utils.Utils;
 
-import java.math.BigInteger;
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -95,6 +93,7 @@ public class Main {
         return l;
     }
 
+
     public static void main(String[] args) throws CloneNotSupportedException {
 
         Basket<Integer> b1 = new Basket<>();
@@ -127,5 +126,48 @@ public class Main {
         System.out.println(addBasket(new Basket<>()));
 
         System.out.println(addList(new ArrayList<>()));
+
+        System.out.println("");
+        System.out.println("Задачи 5.3");
+        System.out.println("");
+        // Задачи 5.3
+
+
+        List<String> str = Arrays.asList("qwerty", "asdfg", "zx");
+        UtilsStr ls = new UtilsStr();
+
+        System.out.println(Utils.function(str, ls));
+
+        List<Integer> integ = Arrays.asList(1, -3, 7);
+        UtilsInt cn = new UtilsInt();
+        System.out.println(Utils.function(integ, cn));
+
+        Integer[] a1 = new Integer[2];
+        a1[0] = 1;
+        a1[1] = 5;
+
+        Integer[] a2 = new Integer[2];
+        a2[0] = 3;
+        a2[1] = 54;
+
+        Integer[] a3 = new Integer[2];
+        a3[0] = -3;
+        a3[1] = -54;
+
+        List<Integer[]> arr = Arrays.asList(a1, a2, a3);
+        UtilsArrayInt ma = new UtilsArrayInt();
+        System.out.println(Utils.function(arr, ma));
+
+        System.out.println("");
+        System.out.println(Utils.filter(str, ls));
+        System.out.println(Utils.filter(integ, cn));
+        System.out.println(Utils.filter(arr, ma));
+
+        System.out.println("");
+        System.out.println(Utils.reduction(str, ls));
+        System.out.println(Utils.reduction(integ, cn));
+        System.out.println(Arrays.toString(Utils.reduction(arr, ma)));
+
     }
+
 }
