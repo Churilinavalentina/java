@@ -12,9 +12,9 @@ public class Storage<T> {
         return object;
     }
 
-    public static<T> T getObject(T object, T alternetiva){
-        if (object==null) return alternetiva;
-        return object;
+    public T getObject(T alternetiva){
+        if (this.object==null) return alternetiva;
+        return this.object;
     }
 
 }

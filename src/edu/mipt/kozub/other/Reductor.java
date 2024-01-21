@@ -1,4 +1,4 @@
-package edu.mipt.kozub.utils;
+package edu.mipt.kozub.other;
 
 import java.util.List;
 

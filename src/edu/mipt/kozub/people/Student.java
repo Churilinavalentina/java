@@ -1,6 +1,6 @@
 package edu.mipt.kozub.people;
 
-import edu.mipt.kozub.Comparable;
+import edu.mipt.kozub.other.Comparable;
 
 import java.util.ArrayList;
 import java.util.List;

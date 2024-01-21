@@ -1,4 +1,4 @@
-package edu.mipt.kozub.basket;
+package edu.mipt.kozub.storage;
 
 public class Basket<T> {
     private T element;
