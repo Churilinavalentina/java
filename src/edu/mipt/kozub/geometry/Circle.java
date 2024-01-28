@@ -14,4 +14,12 @@ public class Circle extends AbstractFigures implements Area{
     public Double area(){
         return (double) Math.PI*r*r;
     }
+
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "startPoint=" + this.getStartPoint() +
+                "r=" + r +
+                '}';
+    }
 }

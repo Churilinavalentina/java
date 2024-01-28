@@ -54,10 +54,10 @@ public class SomeStaticClass {
         return pow(parseInt(x), parseInt(y));
     }
 
-    public static Line<?> shift(Line<?> l){
-        Line<?> l2 = new Line<>(l.getStart().clone().shift(10), l.getEnd().clone().shift(10));
-        return l2;
-    }
+//    public static Line<?> shift(Line<?> l){
+//        Line<?> l2 = new Line<>(l.getStart().clone().shift(10), l.getEnd().clone().shift(10));
+//        return l2;
+//    }
 
     public static double maxStor(Storage<? extends Number>...s){
         double max = (double) 0;

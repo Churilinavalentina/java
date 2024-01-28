@@ -1,29 +1,30 @@
 package edu.mipt.kozub.geometry.line;
 
+import edu.mipt.kozub.geometry.Groupable;
 import edu.mipt.kozub.geometry.ToLine;
 
 import java.util.Objects;
 
 import static java.lang.Math.sqrt;
 
-public class Line<T extends Point> implements Length, ToLine, Cloneable {
+public class Line<T extends Point> implements Length, ToLine, Cloneable, Groupable {
     private T start, end;
 
     public Line(T start, T end) {
-        this.start = (T) start.clone();
-        this.end = (T) end.clone();
+        this.start = start;
+        this.end = end;
     }
 
-//    public Line(int xStart, int yStart, int xEnd, int yEnd) {
-//        this(new Point(xStart, yStart), new Point(xEnd, yEnd));
-//    }
-
-    public Point getStart() {
-        return start;
+    public static  Line<Point> of(int xStart, int yStart, int xEnd, int yEnd) {
+        return  new Line<>(new Point(xStart, yStart), new Point(xEnd, yEnd));
     }
 
-    public Point getEnd() {
-        return end;
+    public T getStart() {
+        return (T) start.clone();
+    }
+
+    public T getEnd() {
+        return (T) end.clone();
     }
 
     public void setStart(T start) {
@@ -40,7 +41,7 @@ public class Line<T extends Point> implements Length, ToLine, Cloneable {
     }
 
     public Double length(){
-        return sqrt((start.x-end.x)*(start.x-end.x) + (start.y - end.y)*(start.y - end.y));
+        return start.length(end);
     }
     public BrokenLine getPolygonalLine(){
         return new BrokenLine(start, end);
@@ -59,7 +60,7 @@ public class Line<T extends Point> implements Length, ToLine, Cloneable {
         return Objects.hash(getStart(), getEnd());
     }
 
-    public Line clone(){
+    public Line<T> clone(){
         try {
             Line line = (Line) super.clone();
             line.start = line.start.clone();
@@ -69,5 +70,11 @@ public class Line<T extends Point> implements Length, ToLine, Cloneable {
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void move(int x, int y) {
+        start.move(x,y);
+        end.move(x,y);
     }
 }

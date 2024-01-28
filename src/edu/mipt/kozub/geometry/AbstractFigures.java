@@ -1,7 +1,7 @@
 package edu.mipt.kozub.geometry;
 import edu.mipt.kozub.geometry.line.Point;
 
-abstract public class AbstractFigures {
+abstract public class AbstractFigures implements Groupable{
     private Point startPoint;
 
     public AbstractFigures(Point startPoint) {
@@ -17,4 +17,9 @@ abstract public class AbstractFigures {
     }
 
     abstract public Double area();
+
+    @Override
+    public void move(int x, int y){
+        startPoint.move(x,y);
+    };
 }

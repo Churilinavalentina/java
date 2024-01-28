@@ -1,5 +1,6 @@
 package edu.mipt.kozub.geometry.line;
 
+import edu.mipt.kozub.geometry.Groupable;
 import edu.mipt.kozub.geometry.ToLine;
 
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class BrokenLine implements Length, ToLine {
+public class BrokenLine implements Length, ToLine, Groupable {
     List<Point> brokenLine = new ArrayList<>();
 
     public BrokenLine(Point...line) {
@@ -62,5 +63,12 @@ public class BrokenLine implements Length, ToLine {
     @Override
     public int hashCode() {
         return Objects.hash(getBrokenLine());
+    }
+
+    @Override
+    public void move(int x, int y) {
+        for(Point p: brokenLine){
+            p.move(x,y);
+        }
     }
 }

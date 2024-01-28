@@ -24,4 +24,11 @@ public class Triangle extends AbstractFigures implements Area, ToLine{
     public BrokenLine getPolygonalLine(){
         return new BrokenLine(getStartPoint(), b, c);
     }
+
+    @Override
+    public void move(int x, int y){
+        getStartPoint().move(x,y);
+        b.move(x,y);
+        c.move(x,y);
+    }
 }

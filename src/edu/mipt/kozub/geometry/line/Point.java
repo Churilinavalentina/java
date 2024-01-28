@@ -1,8 +1,12 @@
 package edu.mipt.kozub.geometry.line;
 
+import edu.mipt.kozub.geometry.Groupable;
+
 import java.util.Objects;
 
-public class Point implements Cloneable{
+import static java.lang.Math.sqrt;
+
+public class Point implements Cloneable, Groupable {
     public int x;
     public int y;
 
@@ -24,19 +28,23 @@ public class Point implements Cloneable{
         return "("+x+";"+y+")";
     }
 
-    public Point shift(Integer n){
+    public Point move(Integer n){
         this.x = this.x+n;
         this.y = this.y+n;
         return this;
     }
 
     @Override
-    public final boolean equals(Object o) {
+    public boolean equals(Object o) {
         if (this == o) return true;
         if(o == null && this!=null) return false;
         if (!(o instanceof Point)) return false;
         Point point = (Point) o;
         return x == point.x && y == point.y;
+    }
+
+    public Double length(Point p){
+        return sqrt((x-p.x)*(x-p.x) + (y - p.y)*(y - p.y));
     }
 
     @Override
@@ -50,5 +58,11 @@ public class Point implements Cloneable{
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void move(int x, int y) {
+        this.x+=x;
+        this.y+=y;
     }
 }
