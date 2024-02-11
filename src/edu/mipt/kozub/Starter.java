@@ -3,6 +3,8 @@ import edu.mipt.kozub.geometry.Circle;
 import edu.mipt.kozub.geometry.Group;
 import edu.mipt.kozub.geometry.Square;
 import edu.mipt.kozub.geometry.line.*;
+import edu.mipt.kozub.people.Save;
+import edu.mipt.kozub.people.Student;
 
 import java.util.*;
 import java.util.function.*;
@@ -10,6 +12,37 @@ import java.util.function.*;
 public class Starter {
 
     public static void main(String[] args) throws Exception {
+
+        Student student= new Student("vasia");
+
+        student.setGrades(5);
+
+        student.setGrades(3);
+        Save save= student.getSave();
+
+        student.setGrades(4);
+
+        student.setName("anna");
+
+        student.removeGrades(2);//удаление по индексу
+        System.out.println(student);
+
+        student.undo();
+        System.out.println(student);
+
+
+        student.undo();
+        System.out.println(student);
+
+        student.undo();
+        System.out.println(student);
+
+        student.undo();
+        System.out.println(student);
+
+        save.load();
+        System.out.println(student);
+
 //        List.of("Qwwqw","ty5ty","6","A11");
 //        DataStream<Integer> ds = DataStream.create(List.of(4, -2, 9, -4, 25, -7, -8));
 //        ds = ds.filter(x -> x > 0)
