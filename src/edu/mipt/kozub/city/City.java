@@ -1,11 +1,13 @@
 package edu.mipt.kozub.city;
 
+import edu.mipt.kozub.reflection.Entity;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class City {
+public class City extends Entity {
     private String name;
     private List<Road> roads = new ArrayList<>();
 
@@ -46,10 +48,10 @@ public class City {
         this.roads.remove(road);
     }
 
-    @Override
-    public String toString(){
-        return "City: " + name + ", roads: " + roads.toString();
-    }
+//    @Override
+//    public String toString(){
+//        return "City: " + name + ", roads: " + roads.toString();
+//    }
 
     @Override
     public boolean equals(Object o) {

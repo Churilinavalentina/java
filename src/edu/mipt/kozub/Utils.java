@@ -1,5 +1,9 @@
 package edu.mipt.kozub;
 
+import edu.mipt.kozub.geometry.line.Line;
+import edu.mipt.kozub.geometry.line.Point;
+
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -32,5 +36,31 @@ public class Utils {
             res=reduct.apply(res, t.get(i));
         }
         return Optional.of(res);
+    }
+
+    public static List<Field> fieldCollection(Class cl){
+        List<Field> fields= new ArrayList<>();
+        Class superCl = cl;
+        while (!superCl.equals(new Object().getClass())){
+            for(Field f: superCl.getDeclaredFields())
+                fields.add(f);
+            superCl = superCl.getSuperclass();
+        }
+        fields.stream().distinct();
+        return fields;
+    }
+
+    public static void lineConnector(Line l1, Line l2){
+        try {
+            System.out.println(l1.getClass().getDeclaredFields().toString());
+            Field f1 = l2.getClass().getDeclaredField("start");
+
+            f1.setAccessible(true);
+            f1.set(l2, l1.getEnd());
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
