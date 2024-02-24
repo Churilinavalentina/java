@@ -26,13 +26,13 @@ public class SomeStaticClass {
         return s;
     }
 
-    public static BrokenLine polygonalLine(ToLine... figurs){
-        BrokenLine b =new BrokenLine();
-        for (ToLine f: figurs){
-            b.addPoint(f.getPolygonalLine().getBrokenLine());
-        }
-        return b;
-    }
+//    public static BrokenLine polygonalLine(ToLine... figurs){
+//        BrokenLine b =new BrokenLine();
+//        for (ToLine f: figurs){
+//            b.addPoint(f.getPolygonalLine().getBrokenLine());
+//        }
+//        return b;
+//    }
 
     public static Double length(Length... figurs){
         Double s = (double) 0;

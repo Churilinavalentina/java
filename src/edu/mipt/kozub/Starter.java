@@ -1,96 +1,50 @@
 package edu.mipt.kozub;
-import edu.mipt.kozub.geometry.Circle;
-import edu.mipt.kozub.geometry.Group;
-import edu.mipt.kozub.geometry.Square;
 import edu.mipt.kozub.geometry.line.*;
-import edu.mipt.kozub.people.Save;
-import edu.mipt.kozub.people.Student;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 import java.util.function.*;
+import java.util.stream.Collectors;
 
 public class Starter {
 
     public static void main(String[] args) throws Exception {
 
-        Student student= new Student("vasia");
+//        Задание 1:
+//        Написать следующую стриму: дан набор объектов типа Point, необходимо взять все Point в разных точках, (убрать с одинаковыми X,Y),отсортировать по X, отрицательные Y сделать положительными и собрать это все в ломаную (объект типа Polyline)
 
-        student.setGrades(5);
+        List<Point> points = Arrays.asList(new Point(2,3), new Point(3, 5), new Point(2,3));
+        BrokenLine polyline = points.stream()
+                .map(p->new Point(p.x, Math.abs(p.y)))
+                .distinct()
+                .sorted(Comparator.comparingInt(p->p.x))
+                .collect(Collectors.collectingAndThen(Collectors.toList(), BrokenLine::new));
 
-        student.setGrades(3);
-        Save save= student.getSave();
-
-        student.setGrades(4);
-
-        student.setName("anna");
-
-        student.removeGrades(2);//удаление по индексу
-        System.out.println(student);
-
-        student.undo();
-        System.out.println(student);
+        System.out.println(polyline);
 
 
-        student.undo();
-        System.out.println(student);
+//        Задание 2:
+//        Дан текстовый файл с строками содержащими имя человека и его номер в следующей форме:
+//        Вася:5
+//        Петя:3
+//        Аня:5
+//        Номера людей могут повторяться.
+//        У каких-то людей может не быть номера.
+//                Необходимо написать стриму выполняющую следующее:
+//        читаются все люди из файла, все имена приводится к нижнему регистру, но с первой буквой в верхнем регистре, убираем из перечня всех людей без номеров, а имена оставшихся группируются по их номеру:
+//[5:[Вася, Аня], 3:[Петя]]
 
-        student.undo();
-        System.out.println(student);
-
-        student.undo();
-        System.out.println(student);
-
-        save.load();
-        System.out.println(student);
-
-//        List.of("Qwwqw","ty5ty","6","A11");
-//        DataStream<Integer> ds = DataStream.create(List.of(4, -2, 9, -4, 25, -7, -8));
-//        ds = ds.filter(x -> x > 0)
-//                .map(x -> Math.sqrt(x))
-//                .map(x -> x.intValue());
-//        //int res=ds.reduce((x,y)->x+y,0);
-//        //System.out.println(res);
-//
-//        List<Integer> resList=ds.collect(ArrayList::new,(xLst,x)->xLst.add(x));
-//        System.out.println(resList.toString());
-//
-//        //4.1 есть список строк, отобрать те строки, которые начинаются с большой буквы, и посчитать общую длину оставшихся строк
-//        DataStream<String> ds1 = DataStream.create(List.of("Qwwqw","ty5ty","6","A11"));
-//        ds1 = ds1.filter(x-> Character.isUpperCase(x.charAt(0)));
-//        int res1= ds1.reduce((x,y)-> x+y,"").length();
-//        System.out.println(res1);
-//
-//        //4.2 есть список чисел, удалить нули, результат разложить по двум спискам: в одном отрицательные значения, в другом положительные
-//        DataStream<Integer> ds2 = DataStream.create(List.of(1, 0, -3, 8, -4, 0));
-//        ds2 = ds2.filter(x->x!=0);
-//        List<Integer> lst1 = ds2
-//                .collect(ArrayList::new, (xLst,x)-> {
-//                    if (x > 0) xLst.add(x);
-//                });
-//        List<Integer> lst2 = ds2
-//                .collect(ArrayList::new, (xLst,x)-> {
-//                    if (x < 0) xLst.add(x);
-//                });
-//        System.out.println(lst1.toString());
-//        System.out.println(lst2.toString());
-//
-//        //4.3 дан список строк, некоторые из них числа. Удалить все строки НЕ являющиеся числами, преобразовать строки в числа, и получить их сумму
-//        DataStream<String> ds3 = DataStream.create(List.of("Qwwqw","ty5ty","6","A11","5"));
-//        List<Integer> lst3 = ds3.filter(x-> x.matches("[-+]?\\d+"))
-//                .collect(ArrayList::new, (xLst,x)->xLst.add(Integer.valueOf(x)));
-//        int res3= DataStream.create(lst3).reduce((x,y)-> x+y,0);
-//        System.out.println(res3);
+        Path path = Path.of("text.txt");
+        String r = Files.lines(path).toString();
+        var res = Files.lines(path)
+                .map(l->l.split(":"))
+                .filter(array -> array.length>1)
+                .map(array -> new String[]{array[0].substring(0,1).toUpperCase()+array[0].substring(1).toLowerCase(), array[1]})
+                .collect(Collectors.groupingBy(array -> array[1], Collectors.mapping(array -> array[0], Collectors.toList())));
+        System.out.println(res);
 
 
-        Group gr1 = new Group(Line.of(1,2,3,4), new Point(1,2), new Point3D(1,2,3), new Circle(new Point(5,6), 5));
-        Group gr2 = new Group(new Square(7,8,9));
-        Group gr3 = new Group(gr1, gr2);
-
-        System.out.println(gr3);
-
-        gr3.move(2,3);
-
-        System.out.println(gr3);
 
     }
 }

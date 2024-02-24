@@ -11,7 +11,7 @@ import java.util.Objects;
 public class BrokenLine implements Length, ToLine, Groupable {
     List<Point> brokenLine = new ArrayList<>();
 
-    public BrokenLine(Point...line) {
+    public BrokenLine(List<Point> line) {
         for(Point x:line) this.brokenLine.add(x);
     }
 

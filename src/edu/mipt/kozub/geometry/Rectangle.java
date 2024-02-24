@@ -3,6 +3,8 @@ package edu.mipt.kozub.geometry;
 import edu.mipt.kozub.geometry.line.BrokenLine;
 import edu.mipt.kozub.geometry.line.Point;
 
+import java.util.Arrays;
+
 public class Rectangle extends AbstractFigures implements Area, ToLine{
     int a;
     int b;
@@ -14,8 +16,8 @@ public class Rectangle extends AbstractFigures implements Area, ToLine{
     }
 
     public BrokenLine getPolygonalLine(){
-        return new BrokenLine(getStartPoint(), new Point(getStartPoint().x+a, getStartPoint().y),
-                new Point(getStartPoint().x+a, getStartPoint().y-b), new Point(getStartPoint().x, getStartPoint().y-b), getStartPoint());
+        return new BrokenLine(Arrays.asList(getStartPoint(), new Point(getStartPoint().x+a, getStartPoint().y),
+                new Point(getStartPoint().x+a, getStartPoint().y-b), new Point(getStartPoint().x, getStartPoint().y-b), getStartPoint()));
     }
 
     @Override

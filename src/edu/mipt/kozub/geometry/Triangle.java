@@ -2,6 +2,9 @@ package edu.mipt.kozub.geometry;
 import edu.mipt.kozub.geometry.line.BrokenLine;
 import edu.mipt.kozub.geometry.line.Line;
 import edu.mipt.kozub.geometry.line.Point;
+
+import java.util.Arrays;
+
 public class Triangle extends AbstractFigures implements Area, ToLine{
     Point b;
     Point c;
@@ -22,7 +25,7 @@ public class Triangle extends AbstractFigures implements Area, ToLine{
     }
 
     public BrokenLine getPolygonalLine(){
-        return new BrokenLine(getStartPoint(), b, c);
+        return new BrokenLine(Arrays.asList(getStartPoint(), b, c));
     }
 
     @Override

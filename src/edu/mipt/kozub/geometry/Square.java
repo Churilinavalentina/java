@@ -2,6 +2,8 @@ package edu.mipt.kozub.geometry;
 import edu.mipt.kozub.geometry.line.Point;
 import edu.mipt.kozub.geometry.line.BrokenLine;
 
+import java.util.Arrays;
+
 public class Square extends AbstractFigures implements Area, ToLine{
     private int length;
 
@@ -29,8 +31,8 @@ public class Square extends AbstractFigures implements Area, ToLine{
     }
 
     public BrokenLine getPolygonalLine(){
-        return new BrokenLine(getStartPoint(), new Point(getStartPoint().x+length, getStartPoint().y),
-                new Point(getStartPoint().x+length, getStartPoint().y-length), new Point(getStartPoint().x, getStartPoint().y-length), getStartPoint());
+        return new BrokenLine(Arrays.asList(getStartPoint(), new Point(getStartPoint().x+length, getStartPoint().y),
+                new Point(getStartPoint().x+length, getStartPoint().y-length), new Point(getStartPoint().x, getStartPoint().y-length), getStartPoint()));
     }
 
     @Override

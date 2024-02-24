@@ -3,6 +3,7 @@ package edu.mipt.kozub.geometry.line;
 import edu.mipt.kozub.geometry.Groupable;
 import edu.mipt.kozub.geometry.ToLine;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 import static java.lang.Math.sqrt;
@@ -44,7 +45,7 @@ public class Line<T extends Point> implements Length, ToLine, Cloneable, Groupab
         return start.length(end);
     }
     public BrokenLine getPolygonalLine(){
-        return new BrokenLine(start, end);
+        return new BrokenLine(Arrays.asList(start, end));
     }
 
     @Override

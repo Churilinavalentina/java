@@ -1,9 +1,11 @@
 package edu.mipt.kozub.geometry.line;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class ClosedBrokenLine extends BrokenLine{
-    public ClosedBrokenLine(Point...point) {
+    public ClosedBrokenLine(List<Point> point) {
+        super(point);
         if(Arrays.asList(point).size() < 3) throw new IllegalArgumentException();
         for(Point p:point) {
             super.brokenLine.add(p);
