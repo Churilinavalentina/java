@@ -1,5 +1,6 @@
 package edu.mipt.kozub.city;
 
+import edu.mipt.kozub.annotation.ToString;
 import edu.mipt.kozub.reflection.Entity;
 
 import java.util.ArrayList;
@@ -8,8 +9,14 @@ import java.util.List;
 import java.util.Objects;
 
 public class City extends Entity {
+    @ToString("NO")
     private String name;
+
+    @ToString
     private List<Road> roads = new ArrayList<>();
+
+    @ToString("NO")
+    private String addParam = "test";
 
     public City(String name, Road...roads) {
         this(name, Arrays.asList(roads));

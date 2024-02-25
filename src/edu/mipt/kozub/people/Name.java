@@ -1,5 +1,6 @@
 package edu.mipt.kozub.people;
 
+import edu.mipt.kozub.annotation.Invoke;
 import edu.mipt.kozub.reflection.Entity;
 
 public class Name extends Entity {
@@ -24,10 +25,12 @@ public class Name extends Entity {
         this.surname = surname;
     }
 
+    @Invoke
     public String getFirstName() {
         return firstName;
     }
 
+    @Invoke
     public String getSecondName() {
         return secondName;
     }
@@ -36,6 +39,7 @@ public class Name extends Entity {
         return surname;
     }
 
+    @Invoke
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }

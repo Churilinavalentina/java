@@ -1,10 +1,12 @@
 package edu.mipt.kozub.geometry;
+import edu.mipt.kozub.annotation.Default;
 import edu.mipt.kozub.geometry.line.Point;
 import edu.mipt.kozub.geometry.line.BrokenLine;
 
 import java.util.Arrays;
 
 public class Square extends AbstractFigures implements Area, ToLine{
+    @Default(Value = 5)
     private int length;
 
     public Square(Point startPoint,int length) {

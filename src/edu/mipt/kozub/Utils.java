@@ -1,15 +1,19 @@
 package edu.mipt.kozub;
 
+import edu.mipt.kozub.annotation.Default;
+import edu.mipt.kozub.annotation.Invoke;
 import edu.mipt.kozub.geometry.line.Line;
 import edu.mipt.kozub.geometry.line.Point;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Utils {
 
@@ -61,6 +65,43 @@ public class Utils {
             throw new RuntimeException(e);
         } catch (IllegalAccessException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public static Map<String, String> collect(String[] arg, Class...clazz){
+        Map<String, String> metCl = new HashMap<>();
+        for(Class cl:clazz){
+            Stream<Method> met = Arrays.stream(cl.getMethods())
+                    .filter(x->x.isAnnotationPresent(Invoke.class))
+                    .filter(x -> x.getParameters().length==0)
+                    .filter(x -> !x.getReturnType().equals(void.class));
+
+            metCl = met.collect(Collectors.toMap(x -> x.getName(), x -> {
+                try {
+                    return (String) x.invoke(cl.getConstructors()[0].newInstance(arg));
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException(e);
+                } catch (InvocationTargetException e) {
+                    throw new RuntimeException(e);
+                } catch (InstantiationException e) {
+                    throw new RuntimeException(e);
+                }
+            }));
+        }
+        return metCl;
+    }
+
+    public static void reset(Object obj){
+        Field[] fields = fieldCollection(obj.getClass()).toArray(new Field[0]);
+        for(Field field:fields){
+            if(field.isAnnotationPresent(Default.class)){
+                field.setAccessible(true);
+                try {
+                    field.set(obj, field.getAnnotation(Default.class).Value());
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         }
     }
 }

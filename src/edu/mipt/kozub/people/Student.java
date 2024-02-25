@@ -1,5 +1,6 @@
 package edu.mipt.kozub.people;
 
+import edu.mipt.kozub.annotation.Validate;
 import edu.mipt.kozub.other.Comparable;
 
 import java.util.ArrayDeque;
@@ -7,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
+
+@Validate(value = Student.class)
 public class Student implements Comparable<Student> {
     private String name;
     private List<Integer> grades = new ArrayList<>();
