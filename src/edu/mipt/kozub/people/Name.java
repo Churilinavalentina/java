@@ -1,6 +1,8 @@
 package edu.mipt.kozub.people;
 
-public class Name {
+import edu.mipt.kozub.reflection.Entity;
+
+public class Name extends Entity {
     private String firstName;
     private String secondName;
     private String surname;
@@ -46,11 +48,11 @@ public class Name {
         this.surname = surname;
     }
 
-    @Override
-    public String toString(){
-        String fullName = (secondName == null  ? "" : secondName + " ") +
-                (firstName == null ? "" : firstName + " ") +
-                (surname == null ? "" : surname + " ");
-        return fullName;
-    }
+//    @Override
+//    public String toString(){
+//        String fullName = (secondName == null  ? "" : secondName + " ") +
+//                (firstName == null ? "" : firstName + " ") +
+//                (surname == null ? "" : surname + " ");
+//        return fullName;
+//    }
 }
