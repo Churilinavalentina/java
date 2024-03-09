@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.mipt.edu.kozub.annotation.NeedToString;
 import ru.mipt.edu.kozub.annotation.ToString;
@@ -12,7 +13,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import static ru.mipt.edu.kozub.Utils.fieldCollection;
 
 class EntityTest {
+    TestField entity1 = new TestField();
+    TestFieldToString entity2 = new TestFieldToString();
     @Test
+    @DisplayName("return type")
     public void testTipeReturn(){
         Method method;
         try {
@@ -25,83 +29,61 @@ class EntityTest {
 
     //Проверка на наличие в строке названия класса
     @Test
+    @DisplayName("results string contains class name")
     public void testContainsNameClass(){
-        TestField testField = new TestField();
-        Assertions.assertTrue(testField.toString().contains(testField.getClass().getName()),
+        Assertions.assertTrue(entity1.toString().contains(entity1.getClass().getName()),
                 "results string not contains class name");
+    }
+
+    //Проверка на наследование
+    @Test
+    @DisplayName("results string contains parent fields")
+    public void testContainsParentClass(){
+        String str = entity2.toString();
+        Assertions.assertTrue(()->str.contains("testYesParrent"),
+                "results string not contains parent fields");
     }
 
     //Проверка на добавление атрибута при аннотации атрибута ToString = YES
     @Test
+    @DisplayName("contains fields YES")
     public void testContainsFieldYES(){
-        TestField testField = new TestField();
-
-        System.out.println(testField.toString());
-        List<Field> fields = fieldCollection(testField.getClass());
-        Field fieldYes=null;
-        for(Field f: fields) {
-            f.setAccessible(true);
-            ToString toString = f.getDeclaredAnnotation(ToString.class);
-            if (toString!=null && toString.equals(NeedToString.YES)) {
-                fieldYes = f;
-                Assertions.assertTrue(testField.toString().contains(fieldYes.getName()),
-                        "results string not contains fields Yes");
-            }
-        }
+        String str = entity2.toString();
+        Assertions.assertTrue(()->str.contains("testYesParrent"));
+        Assertions.assertTrue(()->str.contains("testYes"));
     }
 
     //Проверка на добавление атрибута при аннотации атрибута ToString = NO
     @Test
+    @DisplayName("contains fields NO")
     public void testContainsFieldNO(){
-        TestField testField = new TestField();
-        System.out.println(testField.toString());
-        List<Field> fields = fieldCollection(testField.getClass());
-        System.out.println(fields);
-        Field fieldYes=null;
-        for(Field f: fields) {
-            f.setAccessible(true);
-            ToString toString = f.getDeclaredAnnotation(ToString.class);
-            if (toString!=null && toString.equals(NeedToString.NO)) {
-                fieldYes = f;
-                Assertions.assertTrue(!testField.toString().contains(fieldYes.getName()),
-                        "results string contains fields  No");
-            }
-        }
+        String str = entity2.toString();
+        Assertions.assertTrue(()->!str.contains("testNoParrent"));
+        Assertions.assertTrue(()->!str.contains("testNo"));
     }
 
     //Проверка на добавление атрибута без аннотации атрибута ToString, но при аннотации класса ToString = YES
     @Test
+    @DisplayName("contains fields empty")
     public void testContainsFieldClassYES(){
-        TestFieldToString testField = new TestFieldToString();
-        System.out.println(testField.toString());
-        List<Field> fields = fieldCollection(testField.getClass());
-        System.out.println(fields);
-        Field fieldYes=null;
-        for(Field f: fields) {
-            f.setAccessible(true);
-            ToString toString = f.getDeclaredAnnotation(ToString.class);
-            if (toString==null && testField.getClass().getDeclaredAnnotation(ToString.class).equals(NeedToString.NO)) {
-                fieldYes = f;
-                Assertions.assertTrue(!testField.toString().contains(fieldYes.getName()),
-                        "results string contains fields  No");
-            }
-        }
+        String str = entity2.toString();
+        Assertions.assertTrue(()->str.contains("testEmpty"));
     }
 
 }
 
 class TestField extends Entity{
     @ToString(NeedToString.YES)
-    String testYes = "qwe";
+    private String testYesParrent = "qwe";
 
     @ToString(NeedToString.NO)
-    String testNo = "rty";
+    private String testNoParrent = "rty";
 
-    String testEmpty = "uio";
+    private String testEmptyParrent = "uio";
 }
 
 @ToString(NeedToString.YES)
-class TestFieldToString extends Entity{
+class TestFieldToString extends TestField{
     @ToString(NeedToString.YES)
     String testYes = "qwe";
 
