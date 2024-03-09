@@ -1,9 +1,14 @@
 package ru.mipt.edu.kozub.numbers;
 
+import ru.mipt.edu.kozub.annotation.Cache;
+import ru.mipt.edu.kozub.annotation.Mutator;
+
 import java.util.Objects;
 
-public final class Fraction extends Number implements Cloneable {
+public final class Fraction extends Number implements Cloneable, Fractionable {
     private int numerator, denominator;
+    int count1 =0;
+    int count2=0;
 
     public Fraction(int numerator, int denominator) {
         this.numerator = numerator;
@@ -13,6 +18,16 @@ public final class Fraction extends Number implements Cloneable {
     public String toString(){
         if (denominator <=0) throw new IllegalArgumentException();
         return numerator+"/"+denominator;
+    }
+
+    @Mutator
+    public void setNumerator(int numerator) {
+        this.numerator = numerator;
+    }
+
+    @Mutator
+    public void setDenominator(int denominator) {
+        this.denominator = denominator;
     }
 
     public Fraction sumF(Fraction f2) {
@@ -44,7 +59,11 @@ public final class Fraction extends Number implements Cloneable {
     }
 
     @Override
+    @Cache
     public double doubleValue() {
+        System.out.println("invoke double value");
+        if(numerator==1) count1++;
+        if(numerator==2) count2++;
         return (double) numerator/denominator;
     }
 

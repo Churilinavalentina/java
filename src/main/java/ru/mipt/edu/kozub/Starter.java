@@ -6,6 +6,8 @@ import ru.mipt.edu.kozub.geometry.Square;
 import ru.mipt.edu.kozub.geometry.line.BrokenLine;
 import ru.mipt.edu.kozub.geometry.line.Line;
 import ru.mipt.edu.kozub.geometry.line.Point;
+import ru.mipt.edu.kozub.numbers.Fraction;
+import ru.mipt.edu.kozub.numbers.Fractionable;
 import ru.mipt.edu.kozub.people.Name;
 import ru.mipt.edu.kozub.people.Student;
 import ru.mipt.edu.kozub.reflection.ObjectsReader;
@@ -26,6 +28,11 @@ import static ru.mipt.edu.kozub.Utils.*;
 public class Starter {
 
     public static void main(String[] args) throws Exception {
+        Fraction fr = new Fraction(1, 2);
+        Fractionable fract = Utils.cache(fr);
+        System.out.println(fract.doubleValue());
+        System.out.println(fract.doubleValue());
+        System.out.println(fract.doubleValue());
 
 //        Задание 1:
 //        Написать следующую стриму: дан набор объектов типа Point, необходимо взять все Point в разных точках, (убрать с одинаковыми X,Y),отсортировать по X, отрицательные Y сделать положительными и собрать это все в ломаную (объект типа Polyline)

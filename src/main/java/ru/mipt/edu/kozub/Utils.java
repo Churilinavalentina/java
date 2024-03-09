@@ -7,6 +7,8 @@ import ru.mipt.edu.kozub.geometry.line.Line;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.rmi.server.RemoteObjectInvocationHandler;
 import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
@@ -100,5 +102,17 @@ public class Utils {
                 }
             }
         }
+    }
+
+    public static <T> T cache(T objectIncome) {
+
+        ClassLoader objectIncomeClassLoader = objectIncome.getClass().getClassLoader();
+        Class[] objectIncomeInterfaces = objectIncome.getClass().getInterfaces();
+
+        T proxyObject = (T) Proxy.newProxyInstance(objectIncomeClassLoader,
+                objectIncomeInterfaces,
+                new ObjectInvocationHandlerAdv<>(objectIncome));
+
+        return proxyObject;
     }
 }
