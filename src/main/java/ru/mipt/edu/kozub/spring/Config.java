@@ -74,15 +74,16 @@ public class Config {
 
     }
 
-    @Bean
-    @Scope("prototype")
-    public Student student1(Predicate<Integer> range) {
-        return new Student("Ivan", range, 5);
-    }
+//    @Bean
+//    @Scope("prototype")
+//    public Student student1(Predicate<Integer> range) {
+//        return new Student("Ivan", range, 5);
+//    }
+//
+//    @Bean
+//    @Scope("prototype")
+//    public Student student2(Predicate<Integer> range, int...grades) {
+//        return new Student("Pety", range, 5,3,4);
+//    }
 
-    @Bean
-    @Scope("prototype")
-    public Student student2(Predicate<Integer> range, int...grades) {
-        return new Student("Pety", range, 5,3,4);
-    }
 }

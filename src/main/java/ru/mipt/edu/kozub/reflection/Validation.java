@@ -1,12 +1,13 @@
 package ru.mipt.edu.kozub.reflection;
 
+import org.springframework.stereotype.Component;
 import ru.mipt.edu.kozub.annotation.Test;
 import ru.mipt.edu.kozub.annotation.Validate;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
+@Component
 public class Validation {
     public  static void validate(Object...objectForTest){
         for(Object obj:objectForTest) {

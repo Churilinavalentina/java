@@ -1,5 +1,7 @@
 package ru.mipt.edu.kozub.people;
 
+import org.springframework.stereotype.Component;
+import ru.mipt.edu.kozub.annotation.Default;
 import ru.mipt.edu.kozub.annotation.Validate;
 import ru.mipt.edu.kozub.other.Comparable;
 import ru.mipt.edu.kozub.reflection.TestForStudent;
@@ -10,9 +12,12 @@ import java.util.Deque;
 import java.util.List;
 import java.util.function.Predicate;
 
-
+@Component
 @Validate(TestForStudent.class)
+@Default(Value = "setGradeDef")
 public class Student implements Comparable<Student> {
+
+    @Default(Value = "Pety")
     private String name;
     private List<Integer> grades = new ArrayList<>();
 
@@ -48,6 +53,10 @@ public class Student implements Comparable<Student> {
                 actions.push(() -> this.grades.remove(grades.size() - 1));
             } else throw new IllegalArgumentException();
         }
+    }
+
+    public void setGradeDef() {
+        setGrades(2, 3);
     }
 
     public void removeGrades(int index) {

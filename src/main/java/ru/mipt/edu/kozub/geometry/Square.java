@@ -6,7 +6,6 @@ import ru.mipt.edu.kozub.geometry.line.Point;
 import java.util.Arrays;
 
 public class Square extends AbstractFigures implements Area, ToLine {
-    @Default(Value = 5)
     private int length;
 
     public Square(Point startPoint, int length) {

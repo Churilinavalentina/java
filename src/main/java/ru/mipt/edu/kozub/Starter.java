@@ -2,12 +2,14 @@ package ru.mipt.edu.kozub;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ru.mipt.edu.kozub.ValidateAnnotationBeanPostProcessor.ValidateAnnotationPost;
 import ru.mipt.edu.kozub.people.Student;
 import ru.mipt.edu.kozub.spring.Config;
 import ru.mipt.edu.kozub.spring.StudentBuilder;
 import ru.mipt.edu.kozub.spring.TrafficLite;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.function.*;
@@ -15,19 +17,10 @@ import java.util.function.*;
 public class Starter {
 
     public static void main(String[] args) throws Exception {
-        ApplicationContext ctx = new AnnotationConfigApplicationContext("ru.mipt.edu.kozub");
-        Student st = ctx.getBean("student1", Student.class);
-        System.out.println(st.toString());
-        System.out.println(ctx.getBean("review4").toString());
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext("ru.mipt.edu.kozub");
+        System.out.println(ctx.getBean(Student.class));
 
 
-        TrafficLite tr = ctx.getBean(TrafficLite.class);
-        tr.next();
-        tr.next();
-        tr.next();
-        tr.next();
-        tr.next();
-        tr.next();
 
 
 
