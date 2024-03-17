@@ -8,6 +8,7 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
+import java.util.function.Predicate;
 
 
 @Validate(TestForStudent.class)
@@ -17,10 +18,10 @@ public class Student implements Comparable<Student> {
 
     private Deque<Action> actions = new ArrayDeque();
 
-    public Student(String name, int... arr) {
+    public Student(String name, Predicate<Integer> range, int... arr) {
         this.name = name;
         for (int x : arr) {
-            if (x >= 2 && x <= 5) grades.add(x);
+            if (range.test(x)) grades.add(x);
             else throw new IllegalArgumentException();
         }
         this.grades = grades;

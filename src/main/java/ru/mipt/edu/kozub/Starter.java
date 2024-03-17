@@ -1,124 +1,127 @@
 package ru.mipt.edu.kozub;
 
-import ru.mipt.edu.kozub.city.City;
-import ru.mipt.edu.kozub.city.Road;
-import ru.mipt.edu.kozub.geometry.Square;
-import ru.mipt.edu.kozub.geometry.line.BrokenLine;
-import ru.mipt.edu.kozub.geometry.line.Line;
-import ru.mipt.edu.kozub.geometry.line.Point;
-import ru.mipt.edu.kozub.numbers.Fraction;
-import ru.mipt.edu.kozub.numbers.Fractionable;
-import ru.mipt.edu.kozub.people.Name;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ru.mipt.edu.kozub.people.Student;
-import ru.mipt.edu.kozub.reflection.ObjectsReader;
-import ru.mipt.edu.kozub.reflection.ObjectsWriter;
-import ru.mipt.edu.kozub.reflection.Validation;
+import ru.mipt.edu.kozub.spring.Config;
+import ru.mipt.edu.kozub.spring.StudentBuilder;
+import ru.mipt.edu.kozub.spring.TrafficLite;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.function.*;
-import java.util.stream.Collectors;
-
-import static ru.mipt.edu.kozub.Utils.*;
 
 public class Starter {
 
     public static void main(String[] args) throws Exception {
-        Fraction fr = new Fraction(1, 2);
-        Fractionable fract = Utils.cache(fr);
-        System.out.println(fract.doubleValue());
-        System.out.println(fract.doubleValue());
-        System.out.println(fract.doubleValue());
-
-//        Задание 1:
-//        Написать следующую стриму: дан набор объектов типа Point, необходимо взять все Point в разных точках, (убрать с одинаковыми X,Y),отсортировать по X, отрицательные Y сделать положительными и собрать это все в ломаную (объект типа Polyline)
-
-        List<Point> points = Arrays.asList(new Point(2,3), new Point(3, 5), new Point(2,3));
-        BrokenLine polyline = points.stream()
-                .map(p->new Point(p.x, Math.abs(p.y)))
-                .distinct()
-                .sorted(Comparator.comparingInt(p->p.x))
-                .collect(Collectors.collectingAndThen(Collectors.toList(), BrokenLine::new));
-
-        System.out.println(polyline);
+        ApplicationContext ctx = new AnnotationConfigApplicationContext("ru.mipt.edu.kozub");
+        Student st = ctx.getBean("student1", Student.class);
+        System.out.println(st.toString());
+        System.out.println(ctx.getBean("review4").toString());
 
 
-//        Задание 2:
-//        Дан текстовый файл с строками содержащими имя человека и его номер в следующей форме:
-//        Вася:5
-//        Петя:3
-//        Аня:5
-//        Номера людей могут повторяться.
-//        У каких-то людей может не быть номера.
-//                Необходимо написать стриму выполняющую следующее:
-//        читаются все люди из файла, все имена приводится к нижнему регистру, но с первой буквой в верхнем регистре, убираем из перечня всех людей без номеров, а имена оставшихся группируются по их номеру:
-//[5:[Вася, Аня], 3:[Петя]]
+        TrafficLite tr = ctx.getBean(TrafficLite.class);
+        tr.next();
+        tr.next();
+        tr.next();
+        tr.next();
+        tr.next();
+        tr.next();
 
-        Path path = Path.of("text.txt");
-        String r = Files.lines(path).toString();
-        var res = Files.lines(path)
-                .map(l->l.split(":"))
-                .filter(array -> array.length>1)
-                .map(array -> new String[]{array[0].substring(0,1).toUpperCase()+array[0].substring(1).toLowerCase(), array[1]})
-                .collect(Collectors.groupingBy(array -> array[1], Collectors.mapping(array -> array[0], Collectors.toList())));
-        System.out.println(res);
 
-        //7.1.1
-        System.out.println("\n\n//7.1.1");
 
-        Square sq = new Square(new Point(1,2), 2);
-        System.out.println(fieldCollection(sq.getClass()));
-
-        //7.1.2
-        System.out.println("\n\n//7.1.2");
-
-        Line l1 = new Line(new Point(1, 2), new Point(3,4));
-        Line l2 = new Line(new Point(5, 6), new Point(7,8));
-        lineConnector(l1, l2);
-        System.out.println(l1);
-        System.out.println(l2);
-
-        //7.1.3
-        System.out.println("\n\n//7.1.3");
-
-        System.out.println(new City("test", new Road(new City("t1"), 5)).toString());
-
-        //7.1.4, 7.2.4, 7.2.5
-        System.out.println("\n\n//7.1.4, 7.2.4");
-
-        Student s1 = new Student("Pety", 2,3);
-        Validation.validate(new Student[]{s1});
-
-        //7.1.5 Чтение работает только для классов, где аргументы - строки
-        System.out.println("\n\n//7.1.5");
-
-        ObjectsWriter ow = new ObjectsWriter("Name.txt");
-        ow.write(Arrays.asList(new Name("Petr", "Petrovich"), new Name("Ivan", "Ivanovich")));
-
-        ObjectsReader<Name> or = new ObjectsReader<>("Name.txt");
-        System.out.println(or.read());
-        System.out.println(or.read().get(1).getFirstName());
-
-        //7.3.1
-        System.out.println("\n\n//7.3.1");
-
-        Class name1 = or.read().get(1).getClass();
-        System.out.println(collect(new String[]{"Ivan", "Ivanov", "Ivanovich"}, name1));
-
-        //7.3.2
-        System.out.println("\n\n//7.3.2");
-        Square square = new Square(new Point(4,5), 2);
-        reset(square);
-        System.out.println(square);
-
-        //7.3.3
-        System.out.println("\n\n//7.3.3");
-
-        System.out.println(new City("test", new Road(new City("t1"), 5)).toString());
+//        Fraction fr = new Fraction(1, 2);
+//        Fractionable fract = Utils.cache(fr);
+//        System.out.println(fract.doubleValue());
+//        System.out.println(fract.doubleValue());
+//        System.out.println(fract.doubleValue());
+//
+////        Задание 1:
+////        Написать следующую стриму: дан набор объектов типа Point, необходимо взять все Point в разных точках, (убрать с одинаковыми X,Y),отсортировать по X, отрицательные Y сделать положительными и собрать это все в ломаную (объект типа Polyline)
+//
+//        List<Point> points = Arrays.asList(new Point(2,3), new Point(3, 5), new Point(2,3));
+//        BrokenLine polyline = points.stream()
+//                .map(p->new Point(p.x, Math.abs(p.y)))
+//                .distinct()
+//                .sorted(Comparator.comparingInt(p->p.x))
+//                .collect(Collectors.collectingAndThen(Collectors.toList(), BrokenLine::new));
+//
+//        System.out.println(polyline);
+//
+//
+////        Задание 2:
+////        Дан текстовый файл с строками содержащими имя человека и его номер в следующей форме:
+////        Вася:5
+////        Петя:3
+////        Аня:5
+////        Номера людей могут повторяться.
+////        У каких-то людей может не быть номера.
+////                Необходимо написать стриму выполняющую следующее:
+////        читаются все люди из файла, все имена приводится к нижнему регистру, но с первой буквой в верхнем регистре, убираем из перечня всех людей без номеров, а имена оставшихся группируются по их номеру:
+////[5:[Вася, Аня], 3:[Петя]]
+//
+//        Path path = Path.of("text.txt");
+//        String r = Files.lines(path).toString();
+//        var res = Files.lines(path)
+//                .map(l->l.split(":"))
+//                .filter(array -> array.length>1)
+//                .map(array -> new String[]{array[0].substring(0,1).toUpperCase()+array[0].substring(1).toLowerCase(), array[1]})
+//                .collect(Collectors.groupingBy(array -> array[1], Collectors.mapping(array -> array[0], Collectors.toList())));
+//        System.out.println(res);
+//
+//        //7.1.1
+//        System.out.println("\n\n//7.1.1");
+//
+//        Square sq = new Square(new Point(1,2), 2);
+//        System.out.println(fieldCollection(sq.getClass()));
+//
+//        //7.1.2
+//        System.out.println("\n\n//7.1.2");
+//
+//        Line l1 = new Line(new Point(1, 2), new Point(3,4));
+//        Line l2 = new Line(new Point(5, 6), new Point(7,8));
+//        lineConnector(l1, l2);
+//        System.out.println(l1);
+//        System.out.println(l2);
+//
+//        //7.1.3
+//        System.out.println("\n\n//7.1.3");
+//
+//        System.out.println(new City("test", new Road(new City("t1"), 5)).toString());
+//
+//        //7.1.4, 7.2.4, 7.2.5
+//        System.out.println("\n\n//7.1.4, 7.2.4");
+//
+//        Student s1 = new Student("Pety", 2,3);
+//        Validation.validate(new Student[]{s1});
+//
+//        //7.1.5 Чтение работает только для классов, где аргументы - строки
+//        System.out.println("\n\n//7.1.5");
+//
+//        ObjectsWriter ow = new ObjectsWriter("Name.txt");
+//        ow.write(Arrays.asList(new Name("Petr", "Petrovich"), new Name("Ivan", "Ivanovich")));
+//
+//        ObjectsReader<Name> or = new ObjectsReader<>("Name.txt");
+//        System.out.println(or.read());
+//        System.out.println(or.read().get(1).getFirstName());
+//
+//        //7.3.1
+//        System.out.println("\n\n//7.3.1");
+//
+//        Class name1 = or.read().get(1).getClass();
+//        System.out.println(collect(new String[]{"Ivan", "Ivanov", "Ivanovich"}, name1));
+//
+//        //7.3.2
+//        System.out.println("\n\n//7.3.2");
+//        Square square = new Square(new Point(4,5), 2);
+//        reset(square);
+//        System.out.println(square);
+//
+//        //7.3.3
+//        System.out.println("\n\n//7.3.3");
+//
+//        System.out.println(new City("test", new Road(new City("t1"), 5)).toString());
 
     }
 }
