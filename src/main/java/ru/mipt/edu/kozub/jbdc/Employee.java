@@ -1,9 +1,6 @@
 package ru.mipt.edu.kozub.jbdc;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Employee {
@@ -15,6 +12,9 @@ public class Employee {
 
     Integer DepartmentID;
 
+    @JoinColumn(name = "department_id")
+    @OneToOne
+    Department Department;
     public Employee() {
     }
 
