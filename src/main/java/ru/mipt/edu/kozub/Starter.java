@@ -1,8 +1,17 @@
 package ru.mipt.edu.kozub;
 
+import jakarta.persistence.Entity;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 import ru.mipt.edu.kozub.ValidateAnnotationBeanPostProcessor.ValidateAnnotationPost;
+import ru.mipt.edu.kozub.jbdc.DBCreator;
+import ru.mipt.edu.kozub.jbdc.DepartmentRepo;
+import ru.mipt.edu.kozub.jbdc.EmployeeRepo;
 import ru.mipt.edu.kozub.people.Student;
 import ru.mipt.edu.kozub.spring.Config;
 import ru.mipt.edu.kozub.spring.StudentBuilder;
@@ -14,11 +23,21 @@ import java.util.Date;
 import java.util.List;
 import java.util.function.*;
 
+import static ru.mipt.edu.kozub.jbdc.DBCreator.createDB;
+
+
+@SpringBootApplication
+@EntityScan("ru.mipt.edu.kozub.jbdc")
+@ComponentScan("ru.mipt.edu.kozub.jbdc")
 public class Starter {
 
     public static void main(String[] args) throws Exception {
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext("ru.mipt.edu.kozub");
-        System.out.println(ctx.getBean(Student.class));
+        createDB();
+        ApplicationContext ctx = SpringApplication.run(Starter.class);
+        DepartmentRepo repo = ctx.getBean(DepartmentRepo.class);
+        EmployeeRepo repoEmp = ctx.getBean(EmployeeRepo.class);
+        System.out.println(repo.findAll());
+        //System.out.println(repoEmp.join());
 
 
 
