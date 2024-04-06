@@ -3,6 +3,8 @@ package ru.mipt.edu.kozub.jbdc;
 import jakarta.persistence.*;
 import ru.mipt.edu.kozub.annotation.ToString;
 
+import java.util.List;
+
 @Entity
 public class Department {
     @Id
@@ -10,6 +12,9 @@ public class Department {
     Integer id;
 
     String name;
+
+    //@OneToMany(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private List<Employee> emloyess;
     public Department(){}
 
     public Department(String name) {

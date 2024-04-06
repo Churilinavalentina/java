@@ -3,25 +3,29 @@ package ru.mipt.edu.kozub.jbdc;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "employee")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    private Integer id;
 
-    String name;
+    private String name;
 
-    Integer DepartmentID;
+    //private Integer DepartmentID;
 
-    @JoinColumn(name = "department_id")
-    @OneToOne
-    Department Department;
+    @Column(name = "depname")
+    private String depname;
+
+//    @JoinColumn(name = "departmentId")
+//    @ManyToOne
+//    Department department;
     public Employee() {
     }
 
-    public Employee(Integer id, String name, Integer DepartmentID) {
+    public Employee(Integer id, String name, String depName) {
         this.id = id;
         this.name = name;
-        this.DepartmentID = DepartmentID;
+        this.depname = depName;
     }
 
     @Override
@@ -29,7 +33,7 @@ public class Employee {
         return "Employee{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", departmebt=" + DepartmentID +
+                ", depName='" + depname + '\'' +
                 '}';
     }
 }

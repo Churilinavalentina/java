@@ -37,7 +37,7 @@ public class Starter {
         DepartmentRepo repo = ctx.getBean(DepartmentRepo.class);
         EmployeeRepo repoEmp = ctx.getBean(EmployeeRepo.class);
         //System.out.println(repo.findAll());
-        System.out.println(repoEmp.join());
+        System.out.println(repoEmp.findAll());
 
 
 
