@@ -10,7 +10,7 @@ public class DBCreator {
         try (Connection con = DriverManager.getConnection("jdbc:h2:.\\Office")) {
             Statement stm = con.createStatement();
             stm.executeUpdate("DROP TABLE Department IF EXISTS");
-            stm.executeUpdate("CREATE TABLE Department(ID INT PRIMARY KEY, NAME VARCHAR(255))");
+            stm.executeUpdate("CREATE TABLE Department(ID INT PRIMARY KEY, NAME VARCHAR(255), AUTHOR VARCHAR(255))");
             stm.executeUpdate("INSERT INTO Department VALUES(1,'Accounting')");
             stm.executeUpdate("INSERT INTO Department VALUES(2,'IT')");
             stm.executeUpdate("INSERT INTO Department VALUES(3,'HR')");

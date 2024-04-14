@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="78e5c33b-fa10-4e0d-91a6-df56dd3b144b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/mfti/project/controller/LibraryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/mfti/project/repository/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/mfti/project/repository/BookRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/mfti/project/repository/CreatorDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/mfti/project/repository/Receipts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/mfti/project/repository/SpringDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/mfti/project/repository/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/mfti/project/service/BookService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/edit_book.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/new_book.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Tasks/Documents.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Tasks/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Tasks/test2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-education.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/test2/BrokenLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/out/production/test2/BrokenLine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/test2/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/out/production/test2/City.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/test2/Department.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/out/production/test2/Department.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/test2/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/out/production/test2/Employee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/test2/House.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/out/production/test2/House.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/test2/Line.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/out/production/test2/Line.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/test2/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/out/production/test2/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/test2/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/out/production/test2/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/test2/Names.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/out/production/test2/Names.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/test2/Pair.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/out/production/test2/Pair.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/test2/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/out/production/test2/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/test2/Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/out/production/test2/Point.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/test2/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/out/production/test2/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/test2/Time.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/out/production/test2/Time.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/ObjectInvocationHandlerAdv.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/ObjectInvocationHandlerAdv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/Starter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/Starter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/ValidateAnnotationBeanPostProcessor/ValidateAnnotationPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/ValidateAnnotationBeanPostProcessor/ValidateAnnotationPost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/annotation/Cache.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/annotation/Cache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/annotation/Default.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/annotation/Default.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/annotation/Invoke.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/annotation/Invoke.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/annotation/Mutator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/annotation/Mutator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/annotation/NeedToString.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/annotation/NeedToString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/annotation/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/annotation/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/annotation/ToString.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/annotation/ToString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/annotation/Two.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/annotation/Two.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/annotation/Validate.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/annotation/Validate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/bird/AbstravtBird.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/bird/AbstravtBird.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/bird/Cuckoo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/bird/Cuckoo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/bird/Parrot.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/bird/Parrot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/bird/Sing.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/bird/Sing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/bird/Sparrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/bird/Sparrow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/cat/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/cat/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/cat/Meow.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/cat/Meow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/city/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/city/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/city/Road.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/city/Road.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/city/TwoWayCity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/city/TwoWayCity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/employee/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/employee/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/employee/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/employee/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/geometry/AbstractFigures.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/geometry/AbstractFigures.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/geometry/Area.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/geometry/Area.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/geometry/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/geometry/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/geometry/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/geometry/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/geometry/Groupable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/geometry/Groupable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/geometry/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/geometry/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/geometry/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/geometry/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/geometry/ToLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/geometry/ToLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/geometry/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/geometry/Triangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/geometry/line/AbstractPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/geometry/line/AbstractPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/geometry/line/BrokenLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/geometry/line/BrokenLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/geometry/line/ClosedBrokenLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/geometry/line/ClosedBrokenLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/geometry/line/Length.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/geometry/line/Length.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/geometry/line/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/geometry/line/Line.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/geometry/line/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/geometry/line/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/geometry/line/Point3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/geometry/line/Point3D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/jbdc/DBCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/jbdc/DBCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/jbdc/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/jbdc/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/jbdc/DepartmentRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/jbdc/DepartmentRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/jbdc/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/jbdc/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/jbdc/EmployeeRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/jbdc/EmployeeRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/jbdc/SpringDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/jbdc/SpringDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/numbers/Fraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/numbers/Fraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/numbers/Fractionable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/numbers/Fractionable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/numbers/Sum.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/numbers/Sum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/other/Applyble.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/other/Applyble.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/other/Comparable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/other/Comparable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/other/Gun.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/other/Gun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/other/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/other/House.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/other/Reductor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/other/Reductor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/other/SomeStaticClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/other/SomeStaticClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/other/Tested.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/other/Tested.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/other/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/other/Time.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/people/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/people/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/people/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/people/Human.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/people/Name.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/people/Name.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/people/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/people/Save.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/people/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/people/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/reflection/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/reflection/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/reflection/ObjectsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/reflection/ObjectsReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/reflection/ObjectsWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/reflection/ObjectsWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/reflection/TestForStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/reflection/TestForStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/reflection/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/reflection/Validation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/spring/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/spring/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/spring/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/spring/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/spring/StudentBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/spring/StudentBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/spring/TrafficLite.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/spring/TrafficLite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/storage/Basket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/storage/Basket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ru/mipt/edu/kozub/storage/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/main/java/ru/mipt/edu/kozub/storage/Storage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/test/java/EntityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/src/test/java/EntityTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Tasks/text.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2ejkilvSyOgsPZ5gylCjPYrDu7q" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.Starter.executor": "Run",
+    "Java Scratch.Main.executor": "Run",
+    "Java Scratch.run.executor": "Run",
+    "Maven.java-education-final-project [package].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/valya/Documents/java/Tasks",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static" />
+      <recent name="$PROJECT_DIR$/src/main/java/edu/mfti/project" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Java Scratch">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="java-education-final-project" />
+      <option name="SCRATCH_FILE_URL" value="file://$PROJECT_DIR$/src/main/java/edu/mfti/project/Main.java" />
+      <shortenClasspath name="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-78a6f59c" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="78e5c33b-fa10-4e0d-91a6-df56dd3b144b" name="Changes" comment="" />
+      <created>1712425507335</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712425507335</updated>
+    </task>
+    <servers />
+  </component>
+</project>
