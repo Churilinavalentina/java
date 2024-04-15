@@ -24,7 +24,7 @@ public class CreatorDB {
             stm.executeUpdate("INSERT INTO User VALUES(4,'Tom')");
 
             stm.executeUpdate("DROP TABLE Receipts IF EXISTS");
-            stm.executeUpdate("CREATE TABLE Receipts(ID INT PRIMARY KEY, UserID INT, BookId INT, OpenDT DATE, CloseDT DATE)");
+            stm.executeUpdate("CREATE TABLE Receipts(ID INT PRIMARY KEY, USER_ID INT, BOOK_Id INT, OPEN_DT DATE, CLOSE_DT DATE)");
             stm.executeUpdate("INSERT INTO Receipts VALUES(1, 1, 2, '2024-03-12', NULL)");
             stm.executeUpdate("INSERT INTO Receipts VALUES(2, 1, 3, '2024-03-12', NULL)");
 

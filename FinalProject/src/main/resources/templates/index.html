@@ -7,9 +7,8 @@
 </head>
 <body>
 <div align="center">
-    <h2>Book</h2>
+    <h2>Books</h2>
     <h3><a href="/new_book">New Book</a></h3>
-    <h3><a href="/edit_book">Edit Book</a></h3>
     <table border="1" cellpadding="5">
         <tr>
             <th>ID</th>
@@ -23,6 +22,47 @@
             <td th:text="${prod.author}">Onions</td>
             <td>
                 <a th:href="@{'/delete_book?id=' + ${prod.id}}">Delete</a>
+                <a th:href="@{'/edit_book?id=' + ${prod.id}}">Edit</a>
+            </td>
+        </tr>
+    </table>
+    <h2>Users</h2>
+    <h3><a href="/new_user">New User</a></h3>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="prod : ${user}">
+            <td th:text="${prod.id}">Onion</td>
+            <td th:text="${prod.name}">Onions</td>
+            <td>
+                <a th:href="@{'/delete_user?id=' + ${prod.id}}">Delete</a>
+                <a th:href="@{'/edit_user?id=' + ${prod.id}}">Edit</a>
+            </td>
+        </tr>
+    </table>
+    <h2>Receipts</h2>
+    <h3><a href="/new_receipts">New Receipts</a></h3>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>ID</th>
+            <th>Book_id</th>
+            <th>User_id</th>
+            <th>Open_dt</th>
+            <th>Close_dt</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="prod : ${receipts}">
+            <td th:text="${prod.id}">Onion</td>
+            <td th:text="${prod.book_id}">Onions</td>
+            <td th:text="${prod.user_id}">Onions</td>
+            <td th:text="${prod.open_dt}">Onions</td>
+            <td th:text="${prod.close_dt}">Onions</td>
+            <td>
+                <a th:href="@{'/delete_receipts?id=' + ${prod.id}}">Delete</a>
+                <a th:href="@{'/edit_receipts?id=' + ${prod.id}}">Edit</a>
             </td>
         </tr>
     </table>

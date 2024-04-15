@@ -1,9 +1,6 @@
 package edu.mfti.project.repository;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import javax.sql.DataSource;
 import java.util.Date;
@@ -11,15 +8,16 @@ import java.util.Date;
 @Entity
 public class Receipts {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private Integer book_id;
-    private Integer user_id;
-    private Date open_dt;
-    private Date close_dt;
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Integer id;
+
+    public Integer book_id;
+    public Integer user_id;
+    public String open_dt;
+    public String close_dt;
     public Receipts(){}
 
-    public Receipts(Integer id, Integer book_id, Integer user_id, Date open_dt, Date close_dt) {
+    public Receipts(Integer id, Integer book_id, Integer user_id, String open_dt, String close_dt) {
         this.id = id;
         this.book_id = book_id;
         this.user_id = user_id;
