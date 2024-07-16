@@ -9,18 +9,19 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 import ru.mipt.edu.kozub.ValidateAnnotationBeanPostProcessor.ValidateAnnotationPost;
+import ru.mipt.edu.kozub.employee.Department;
+import ru.mipt.edu.kozub.employee.Employee;
 import ru.mipt.edu.kozub.jbdc.DBCreator;
 import ru.mipt.edu.kozub.jbdc.DepartmentRepo;
 import ru.mipt.edu.kozub.jbdc.EmployeeRepo;
+import ru.mipt.edu.kozub.other.Applyble;
+import ru.mipt.edu.kozub.people.Name;
 import ru.mipt.edu.kozub.people.Student;
 import ru.mipt.edu.kozub.spring.Config;
 import ru.mipt.edu.kozub.spring.StudentBuilder;
 import ru.mipt.edu.kozub.spring.TrafficLite;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.function.*;
 
 import static ru.mipt.edu.kozub.jbdc.DBCreator.createDB;
@@ -32,12 +33,61 @@ import static ru.mipt.edu.kozub.jbdc.DBCreator.createDB;
 public class Starter {
 
     public static void main(String[] args) throws Exception {
-        createDB();
-        ApplicationContext ctx = SpringApplication.run(Starter.class);
-        DepartmentRepo repo = ctx.getBean(DepartmentRepo.class);
-        EmployeeRepo repoEmp = ctx.getBean(EmployeeRepo.class);
-        //System.out.println(repo.findAll());
-        System.out.println(repoEmp.findAll());
+        HashMap<Name, String> abs = new HashMap<>();
+        Name e1 = new Name("Vasy");
+        Name e2 = new Name("Gena");
+        abs.put(e1, "asd");
+        abs.put(e2, "puty");
+        System.out.println(abs);
+        System.out.println(abs.get(e1));
+        System.out.println(abs.get(e2));
+
+        e1.setFirstName("Gena");
+        System.out.println(abs);
+        System.out.println(abs.get(e1));
+        System.out.println(abs.get(e2));
+
+        abs.put(e1, "hjk");
+        System.out.println(abs);
+        System.out.println(abs.get(e1));
+        System.out.println(abs.get(e2));
+
+        HashMap<String, String> test2 = new HashMap();
+        String s1 = "s1";
+        String s2 = "s2";
+        String s3 = "s3";
+
+        test2.put(s1, "1");
+        test2.put(s2, "2");
+        test2.put(s3, "3");
+
+        System.out.println(test2);
+        System.out.println(test2.get(s1));
+        System.out.println(test2.get(s2));
+        System.out.println(test2.get(s3));
+
+        s1 = "s3";
+
+        System.out.println(test2);
+        System.out.println(test2.get(s1));
+        System.out.println(test2.get(s2));
+        System.out.println(test2.get(s3));
+
+        test2.put(s1, "s4");
+
+        System.out.println(test2);
+        System.out.println(test2.get(s1));
+        System.out.println(test2.get(s2));
+        System.out.println(test2.get(s3));
+
+
+
+//        createDB();
+//        ApplicationContext ctx = SpringApplication.run(Starter.class);
+//        DepartmentRepo repo = ctx.getBean(DepartmentRepo.class);
+//        EmployeeRepo repoEmp = ctx.getBean(EmployeeRepo.class);
+//        //System.out.println(repo.findAll());
+//        System.out.println(repoEmp.findAll());
 
 
 
